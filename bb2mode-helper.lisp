@@ -54,7 +54,7 @@
 
 (defun save-commands (table)
   "Take a hashtable of commands and helpstrings and save them in the database.
-command-type is either \"blitz\" or \"amiga\" - returns number of commands saved"
+- returns number of commands saved"
   (let ((sql "insert into commands values (\"null\",\"~A\",\"~A\",\"~A\",\"\")")
 	(result 0))
     (maphash #'(lambda (k v)
