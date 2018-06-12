@@ -1,6 +1,6 @@
 # bb2mode-helper
 
-This Common Lisp package contains a bunch of code that I use to maintain bb2-mode, an Emacs major mode for Blitz Basic 2, an Amiga Basic compiler. All the Blitz Basic 2 commands that bb2-mode knows about, their corresponding help strings and binary tokens are kept in a mysql database. This code manages that database.
+This Common Lisp package contains a bunch of code that I use to maintain [bb2-mode](https://github.com/richardjdare/bb2-mode), an Emacs major mode for Blitz Basic 2, an Amiga Basic compiler. All the Blitz Basic 2 commands that bb2-mode knows about, their corresponding help strings and binary tokens are kept in a MySQL database. This code manages that database.
 
 What this does:
 * Extracts Blitz 2 commands and help strings from text files exported by Stripper, a Blitz Basic utility, and stores them in the database.
