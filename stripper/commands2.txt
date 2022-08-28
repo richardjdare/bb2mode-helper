@@ -1,0 +1,1674 @@
+      Blitz Stripper v1.01 Output.
+    Coded by D!ck (Dick@emarkt.com)
+    -------------------------------
+DisAssemble$                (address.l)
+InstrSize                   - returns size of last instruction disassembled
+D_FindVolume                (volumename)
+D_GetSR                     buffer,SR
+D_HexWord                   source,address,num
+D_CheckNMove                source_address,dest_address[,count]
+D_FindStringPtr             areg5,lookfor
+GetCopIns$                  copdata
+FLocate                     x,y
+FPrint                      a$
+FNPrint                     a$
+FInverse                    inversemode
+GetProgMode                 mode,buffer
+FYOffset                    pixel_offset - offset from vertical y cursor to print at
+SearchMem                   type,value,start_ad,end_ad
+SearchMemFound
+PeekMax$                    (address,max_chars)
+D_CheckNMoveWord            source_address,dest_address[,count]
+GetHex$                     value,mode  (1=byte, 2=word, 3=longword)
+GetHexAdr$                  *value,mode  (1=byte, 2=word, 3=longword)
+GetCustomReg                address
+GetCustomRegAdr             name$
+FPrintDetoke                tokenised_string,cio,typ,lineoffset
+SetupLESDebug               token_addr,tokenise
+ExtractLabel                label_string
+OutText                     x,y,rastport,address/string
+D_CheckNMoveA               source_address,dest_address[,count]
+OutTextPen                  rastport,pen
+D_InitParse                 string
+D_NextArg$                  - get next parameter
+ProcessString               string
+AddProcessPtr               character,string
+ClearProcessPtrs            -- reset process string pointers
+Index                       List() ;Returns index +1 from top of LIST
+SPACE$                      (number of spaces)
+Checksum                    (String$) ;Returns a unique checksum for a given string
+CharCount                   (String$,byte) ;Returns no. occurances of 'byte' in 'string$'
+SearchEnd                   (String$,byte,# from End) ;Searches string backwards for Nth byte
+SearchBegin                 (String$,byte,# from Begin) ;Searches string for Nth byte
+Cipher$                     (String$) ;Create/Unencrypt a Cipher$() string
+Repeats                     (String$) ;Returns # repetitive characters at front of string
+IncSound                    Success=IncSound(SOUND#,?LABEL or ADDRESS)
+IncBitmap                   Success=IncBitmap(BITMAP#,?LABEL or ADDRESS)
+IncMod                      Success=IncMod(TRACKER-MODULE#,?LABEL or ADDRESS)
+IncMed                      Success=IncMed(MED-MODULE#,?LABEL or ADDRESS)
+IncShape                    Success=IncShape(SHAPE#,?LABEL or ADDRESS [,Cookiecut?])
+IncNextShape                Success=IncNextShape [(Cookiecut?)] ;*MUST* use with IncShape(...)
+IncDataABS                  Bytes=IncDataABS(?LABEL or ADDRESS,DESTINATION ADDRESS)
+IncData                     Address=IncData(?LABEL or ADDRESS,MEMTYPE) ;0=fast 2=chip 65536=clearmem
+FreeIncData                 SIZE,ADDRESS ;As returned from IncSize(...) and IncData(...)
+SaveIncData                 Success=SaveIncData(Filename$,?LABEL or ADDRESS)
+IncText$                    n$=IncText$(?LABEL or ADDRESS[,max length])
+IncSize                     bytes=IncSize(?LABEL OR ADDRESS)
+Xor                         (expression,expression) ;Returns Exclusive OR of two expressions
+Largest.l                   (Long Integer1,Long Integer2)
+Smallest.l                  (Long Integer1,Long Integer2)
+Largest.q                   (Quick1,Quick2)
+Smallest.q                  (Quick1,Quick2)
+Largest                     (Integer1,Integer2)
+Smallest                    (Integer1,Integer2)
+Avg.l                       (Long Integer 1,Long Integer 2)
+Avg.q                       (Quick1,Quick2)
+Avg                         (Integer1,Integer2)
+RRandomize                  Seed
+RRnd                        (Low,High)
+Hex#                        (HexString$) ;Converts hexadecimal (in string) value to decimal
+Bin#                        (BinString$) ;Converts binary value (in string) to decimal
+ColourRequest               Colour#
+TextRequest                 (Text,Title,Left Text[,[Middle Text,]Right Text])
+FileReqSize                 Lines High,File Length,Device Length,
+ReqFileRequest$             (Title$,File$,Path$,Flags)
+FileFilter                  Show$,Hide$
+TextTimeout                 Timeout Seconds
+ReqColours                  Text,Detail,Block[,File,Dir,Device[,GadText,GadBox,StringName,StringBox,Frame]]
+GetString$                  (Title$,Default$,Visable size,Max length)
+FileStructure               Pointer to file requester structor
+NextFile$                   Returns next file form MaxSelect$
+MaxSelect$                  Path$=(Title$,File$,Path$,Flags,number of files)
+ReqFontSize                 Returns font size
+Req_Base                    Returns pointer to req.library
+Dos_Base                    Returns pointer to dos.library
+Int_Base                    Returns pointer to intuition.library
+Gfx_Base                    Returns pointer to graphics.library
+Rex_Base                    Returns pointer to RexxSys.library ?
+Con_Base                    Returns pointer to console.device
+OpenConsole                 #Window,#Console
+PrintCon                    Console#,Expression
+NPrintCon                   Console#,Expression
+CloseConsole                Console#
+Implode                     Error/CrunchedLen=Bufferadr,DataLen,?Callback
+Deplode                     Success=Startadr
+CrMDecrunch                 Bufferadr [,Destinationadr]
+PPDecrunch                  Bufferadr,Bufferend,Destinationadr
+IsLocale                    <>0 if locale exists
+UseCatalog                  Catalogname
+FreeCatalog
+GetLocaleStr                (#StringNumber,DefaultString$)
+PrtText                     String
+Hardcopy                    Screen#,X,Y,Width,Height,PtrWidth,PrtHeight,Flags
+PrtCommand                  Command,Para1,Para2,Para3,Para4
+CheckPrt                    -1=Printer Off|-3=Printer Offline|-4=Printer On
+EasyRequest                 Result=EasyRequest([#Window,]title$,body$,gtext$)
+InitChunky                  Chunky#,width,height,flags (1=24bit 2=8bit)
+FreeChunky                  Chunky#
+LoadChunky                  Chunky#,IFFfilename$
+SaveChunky                  Chunky#,IFFfilename$
+ReadChunky                  Chunky#,rawfilename$
+WriteChunky                 Chunky#,rawfilename$
+ProcessChunky               chunky#,contrast
+AdjustChunky                chunky#,DeltaRed,DeltaGreen,DeltaBlue,
+ScaleChunkyX                srcchunky#,destchunky#,newwidth
+ScaleChunkyY                srcchunky#,destchunky#,newheight
+CopyChunky                  srcchunky#,destchunky#,[sx,sy,w,h,dx,dy]
+GreyChunky                  chunky#
+KillGreyChunky              chunky#
+ColorChunky                 chunky#
+ChunkyLoc                   chunky#
+ChunkyConvert               chunky#[,palette]|[,array.l(),numcols]
+ChunkyToBitMap              Chunky#,Bitmap#
+CPlot                       Chunky#,x,y[,color.l],[red.b,green.b,blue.b]
+GPlot                       Chunky#,x,y,color.b
+CPoint                      (Chunky#,x,y)
+GPoint                      (Chunky#,x,y)
+Col8                        (array.l(),numcols,rgb.l)
+GetIconInfo                   success.w=GetIconInfo(Info#,filename$)  -1=ok, 0=fail
+IconTool$                     tool$=IconTool$(Info#,type$)  Empty string=NOT FOUND.
+IconType                      type.w=IconType(Info#)  Returns the icon type. #WBDRAWER,#WBTOOL etc..
+IconDefTool$                  deftool$=IconDefTool$(Info#)  Returns the icons default tool.
+IconStack                     stackSize.l=IconType(Info#)  Returns the stack size set in the icon.
+IconSubTool$                  boolean.w=IconSubTool$(type$,sub$) -1=Found  0=Not found.
+InitNChunky                 NChunky#,Width.l,Height.l
+NChunkyToBtmA               *AddrNChunky.l, *AddrBitMap.l
+BtmToNChunkyA               *AddrBtm.l, *AddrNChunky.l
+NCPlot                      NChunky#, x.l, y.l, colour.b
+NCPoint                     ( NChunky#, x.l, y.l )
+NCBoxF                      NChunky#, x1.l, y1.l, x2.l, y2.l, colour.b
+NCBox                       NChunky#, x1.l, y1.l, x2.l, y2.l, colour.b
+CopyNChunky                 NChunkySrc#, NChunkyDest#
+NCCls                       NChunky# [,colour.b ]
+NChunkyToBtm                NChunky#, BitMap#
+BtmToNChunky                BitMap#, NChunky#
+InitNChunkyA                ( Width.l,Height.l )
+FreeNChunkyA                ( *AddrNChunky )
+NCPlotA                     *AddrNChunky.l, x.l, y.l, colour.b
+NCPointA                    ( *AddrNChunky.l, x.l, y.l )
+NCBoxFA                     *AddrNChunky.l ,x1.l ,y1.l ,x2.l ,y2.l ,colour.b
+NCBoxA                      *AddrNChunky.l ,x1.l ,y1.l ,x2.l ,y2.l ,colour.b
+CopyNChunkyA                *AddrNChunkySrc.l ,*AddrNChunkyDest.l
+NCClsA                      *AddrNChunky.l ,colour.b
+RemapNChunkyLineA           *AddrNChunky.l ,y.l ,&RemapTable.l
+RemapNChunkyLine            NChunky# ,y.l ,&RemapTable.l
+RemapNChunkyPointA          *AddrNChunky.l ,x, y.l ,&RemapTable.l
+RemapNChunkyPoint           NChunky# ,x.l ,y.l ,&RemapTable.l
+FindColor                   (Pal#,Red,Green,Blue[,Tolerance])
+ColorGrey                   (Pal#,Color#)
+ColorToGrey                 (Pal#,Color#)
+SaveILBM                    BitMap#,Filename$,BtmHeader,ViewMode.l,Palette#
+PlayPTModule                PTModule#[,position]
+StopPTModule
+GetPTSongPos
+GetPTPatternPos
+SetPTVolume                 volume
+GetPTVoicePeriod            (voice)
+GetPTVoiceInstrument        (voice)
+SetPTMask                   voicebitmap
+GetPTMask
+SetPTSongLoop               on|off
+SetPTPatLoop                on|off|once
+Once
+GetPTModuleLen              (PTModule#)
+GetPTPosPattern             (PTModule#,position)
+GetPTVuLevel                (voice)
+GetPTStat
+SetPTVoiceToggle            voice
+SetPTVoiceOn                voice
+SetPTVoiceOff               voice
+GetPTVoiceStat              (voice)
+SetPTCiaInt                 interrupttype
+SetPTCiaPri                 interruptpriority
+SetPTCia
+SetPTVbl
+SetPTZeroSpeed              on|off
+PausePTModule
+ContPTModule
+SetPTSpeed                  speed
+GetPTModuleName$            (PTModule#)
+GetPTInstrumentName$        (PTModule#,instrumentnumber)
+GetPTInstrumentAddr         (PTModule#,instrumentnumber)
+GetPTInstrumentLen          (PTModule#,instrumentnumber)
+GetPTInstrumentRepeatStart  (PTModule#,instrumentnumber)
+GetPTInstrumentRepLen       (PTModule#,instrumentnumber)
+GetPTInstrumentVol          (PTModule#,instrumentnumber)
+PTInt
+SetPTNoInt
+LoadPTModule                (PTModule#,filename$)
+SavePTModule                (PTModule#,filename$)
+SetPTTempo                  ciatempo
+GetPTSpeed
+GetPTTempo
+SetPTVoiceVolume            Voice,Volume
+GetPTVoiceVolume            (Voice)
+GetPTVoiceNote              (Voice)
+GetPTRealLevel              (voice)
+NASLFileRequest             (TagList)
+NASLFontRequest             (TagList)
+NASLScreenRequest           (TagList)
+NASLPosX                    - Return the last opened ASL requester X pos -
+NASLPosY                    - Return the last opened ASL requester Y pos-
+NASLWidth                   - Return the last opened ASL requester width -
+NASLHeight                  - Return the last opened ASL requester height -
+NInitASL                    - Initialize ASL for use -
+c2p040_320_200              (ChunkyBufferAdress, BitmapAdress)
+c2p040_320_256              (ChunkyBufferAdress, BitmapAdress)
+NChunkyBuffer               (#Buffer, Width, Height) - Allocate a chunky buffer
+NChunkyBlit                 (ShapeWidth, ShapeHeight, ShapeAddress, X, Y)
+NChunkyBlock                (ShapeWidth, ShapeHeight, ShapeAddress, X, Y)
+NChunkyCls                  (Colour)
+NChunkyPlot                 (X, Y, Colour)
+NUseChunkyBuffer            (#Buffer)
+NInitChunky                 (#NumObjectMax)
+NFreeChunkyBuffer           (#Buffer)
+NChunkyID                   - Return the chunkybuffer memory pointer
+NRenameFile                 (OldName, NewName)
+NDeleteFile                 (FileName)
+Essais                      (#long)
+NCommentFile                (FileName, Comment
+TCPClose
+TCPAvail
+BSDSocket                   (Domain,Type,Protocol)
+BSDBind                     ([s]ock,*Name,NameLen)
+BSDListen                   ([s]ock,BackLog)
+BSDAccept                   ([s]ock,*Addr,*AddrLen)
+BSDConnect                  ([s]ock,*Name,*NameLen)
+BSDSendTo                   ([s]ock,*Buf,Len,Flags,*To,ToLen)
+BSDSend                     ([s]ock,*Buf,Len,Flags)
+BSDRecvFrom                 ([s]ock,*Buf,Len,Flags,*Addr,*AddrLen)
+BSDRecv                     ([s]ock,*Buf,Len,Flags)
+BSDShutDown                 ([s]ock,How)
+BSDSetSockOpt               ([s]ock,Level,OptName,*OptVal,OptLen)
+BSDGetSockOpt               ([s]ock,Level,OptName,*OptVal,*OptLen)
+BSDGetSockName              ([s]ock,*Name,*NameLen)
+BSDGetPeerName              ([s]ock,*Name,*NameLen)
+BSDIoctlSocket              ([s]ock,Req,*ArgP)
+BSDCloseSocket              ([s]ock)
+BSDWaitSelect               (nFDS,*ReadFDS,*WriteFDS,*ExceptFDS,*TimeOut,*Signal)
+BSDSetSocketSignals         (IntMask,IOMask,UrgentMask)
+BSDGetDTableSize
+BSDObtainSocket             (ID,Domain,Type,Protocol)
+BSDReleaseSocket            ([s]ock,ID)
+BSDReleaseCopyOfSocket      ([s]ock,ID)
+BSDErrNo
+BSDSetErrnoPtr              (*ErrNoP,Size)
+BSDINet_NToA                (IP)
+BSDINet_Addr                (*CP)
+BSDINet_LnaOf               (,In)
+BSDINet_NetOf               (In)
+BSDINet_MakeAddr            (Net,Host)
+BSDINet_Network             (*CP)
+BSDGetHostByAddr            (*Addr,Len,Type)
+BSDGetNetByName             (*Name)
+BSDGetNetByAddr             (Net,Type)
+BSDGetServByName            (*Name,*Proto)
+BSDGetServByPort            (Port,*Proto)
+BSDGetProtoByName           (*Name)
+BSDGetProtoByNumber         (ID)
+BSDVSysLog                  (Pri,*Msg,Args)
+BSDDup2Socket               (Olds,News)
+BSDSendMsg                  ([s]ock,*Msg,Flags)
+BSDRecvMsg                  ([s]ock,*Msg,Flags)
+BSDGetHostName              (*Name,NameLen)
+BSDGetHostID
+BSDSocketBaseTagList        (*Tags)
+BSDGetSocketEvents          (*EventSP)
+BSDGetHostByName            (*Name)
+TCPFillMemB                 *Address,FillByte,Length
+TCPOpen
+TCPFillMemL                 *Address,FillLong,Length
+TCPFDSet                    SockBit,*FDAddress
+TCPFDClear                  SockBit,*FDAddress
+TCPCreateSocket             (TCPSock#,BlockingOnOff,SocketRW,TSecs,TMicros)
+TCPRemoveSocket             (TCPSock#)
+TCPFDIsSet                  (SockBit,*FDAddress)
+TCPFDWriteLoc
+TCPFDReadLoc
+TCPConnectSocket            (TCPSock#,Host$,Port)
+TCPEvent
+TCPShutSocket               (TCPSock#,How)
+TCPFDIntHighLoc
+TCPHighest
+TCPRescanHighest
+TCPSetStates                (TCPSock#,States)
+TCPWrite                    TCPSock#,*DataAddress,DataLength
+TCPPrint                    TCPSock#,Data$
+TCPNPrint                   TCPSock#,Data$
+TCPSetReceiveBuffer         (Size)
+TCPReadSocket$              (TCPSock#)
+TCPIsReadEvent              (TCPSock#)
+TCPIsWriteEvent             (TCPSock#)
+TCPFreeReceiveBuffer
+TCPBufferAddress
+TCPFDTempWriteLoc
+TCPFDTempReadLoc
+TCPLastReadSize
+TCPSocketNumber             (TCPSock#)
+TCPSocketError              (TCPSock#)
+TCPErrorString$
+TCPListenSocket             (TCPSock#,QueueBacklog)
+TCPGetOwnHostName$          (MaxLength)
+TCPGetIPStr$                (IPAddress.l)
+TCPGetIPClass               (IPAddress.l,Class) - Class: 0-3
+TCPExamineHostEntry         (Host$)
+TCPHostIPStr$               (Entry)
+TCPHostIP                   (Entry)
+TCPExamineAddrEntry         (IPAddress.l)
+TCPCanonicalName$
+TCPSlapSocketIn             (Socket,TCPSock#)
+TCPPullSocketOut            (TCPSock#)
+TCPGetOwnHostIP
+MMc2pRowLacing              State.b ; Toggle row-lacing in c2p On/Off. NonZero=On
+MMc2pColumnLacing           State.b ; Toggle column-lacing in c2p On/Off
+MMc2pRowToggle               ; Toggle c2p row lacing between Even/Odd rows
+MMc2pColumnToggle            ; Toggle c2p column lacing between Even/Odd columns
+MMc2pToggleSingle            ; Toggle c2p lacing for single-buffered display
+MMc2pToggleDouble           Buf.b ; 0 or 1. Toggle c2p lacing for double-buffered display
+MMc2pToggleTriple           Buf.b ; 0, 1 or 2. Toggle c2p lacing for triple-buffered display
+MMc2pToggle                 Buffers.b,Buf.b ; 1, 2 or 3, and 0, 1 or 2. Toggle c2p lacing.
+MM040c2pUsage               Status.b ; On/Off - Availability of 040 c2p. Overrides Mc2pCPUmode
+MMc2pCPUmode                CPU.b ; Set cpu c2p uses. Use Blitz's `Processor'. <4=030-, 4=040+
+MMc2pWindow                 c2pWindow#.w,OpWidth.w,OpHeight.w[,SourceBWidth.w[,Processor.b],PlanarWidth.w,PlanarHeight.w]
+MMc2pWindowWidth            (c2pWindowNumber.w) ; Returns width of c2pWindow
+MMc2pWindowHeight           (c2pWindowNumber.w) ; Returns height of c2pWindow
+MMc2pWindowNewHeight        c2pWindow#.w,NewHeight.w ; Change height of already defined c2p object
+MMc2p                       c2pWindow#.w,Chunky.l,Planar.l ; Convert chunky to planar (Use Mc2pWindow first)
+MMReservec2pWindows         [(]NumberOfWindows.w[)] ; Reserve structure-memory for c2pWindows
+MMFreec2pWindows            [Firstc2pWindow.w,Lastc2pWindow.w] ; Free/delete all/range of c2pwindows
+MMFreec2pWindow              Free/delete a pre-existing c2pWindow
+MMAddrc2pWindow             (c2pWindowNumer.w} ; Returns address of c2pWindow structure
+MMUsec2pWindows             Mainc2pWindowNum.w[,Secondc2pWindowNum.w[,Thirdc2pWindowNum.w]] ; Current to use
+MMUsec2pWindow              c2pWindowNumber.w ; Current to use
+MMUsedc2pWindow              ; Returns currently used c2pWindow
+MMAutoUsec2pWindows         True/False ; Automatically `use' new c2pWindows. <>0=True
+MMCopyc2pWindow             Sourcec2pWindow.w,Destc2pWindow.w ; Copy definition-data only
+MMGenericPtr                Xpos.w,Ypos.w,BaseAddress.l,RowWidth.w ; Calculate and return address based on inputs
+NAsc                        (String$) - Return the first ASCII value of the string$
+NLen                        (String$) - Return the length of the string$
+NChr$                       (Ascii)
+NTrim$                      (String$, Value)
+NRight$                     (String$, Length)
+NLeft$                      (String$, Length)
+NUCase$                     (String$)
+NLCase$                     (String$)
+NMki$                       (Word)
+NMkl$                       (Long)
+NCvi                        (String$)
+NCvl                        (String$)
+NWbStartup                   - Allow the program to be start from WB
+NWindow                     (#Window, x, y, Width, Height, TagList) - Open a new window -
+NWindowEvent                - Return the window events
+NBusyPointer                ( On/Off ) - Change the mouse pointer to busy -
+NWaitWindowEvent            - Wait for a window event
+NWindowWidth                - Return the window width -
+NWindowHeight               - Return the window height -
+NWindowX                    - Return the X window position -
+NWindowY                    - Return the Y window position -
+NWMouseX                    - Return the Mouse X position -
+NWMouseY                    - Return the Mouse Y position -
+NWindowRastPort             - Return the window rastport -
+NWInnerHeight               - Return the window inner height -
+NWInnerWidth                - Return the window inner width -
+NDetachGadgetList           - Detach the current window's agdgetlist -
+NWindowEventID              - Return the window number which has got the last event
+NWMove                      (X,Y) - Move the window to X-Y -
+NWSize                      (Width,Heigth) - Size the window to new dimentions -
+NUseWindow                  (#Window) - Set the specified window as default window -
+NActivate                   - Activate the used window -
+NCloseWindow                (#Window) - Close the specified window -
+NInitWindow                 (#MaxNumWindow) - Init Window environnement -
+NWindowID                   - Return the used window pointer -
+NDetachMenu                 - Detach the current window menu -
+NGadgetCode                 - Return the last GadgetCode event...
+NEventID                    - Return the last EventID value...
+NQualifier                  - Return the last Qualifier event...
+NUnPackFile                 (&SourceFile$, &DestFile$, &Password$)
+NPackFile                   (&SourceFile$, &DestFile$, &PackerName$, &Password$)
+NPackMemToFile              (*MemAddr, MemLen, &DestFilename$, &Packer$, &Pass$)
+NUnPackFileToMem            (&SourceName, MemType, &Pass$)
+NXpkFileLength              - Return the decompressed File Length
+NXpkBufferLength            - Return the allocated buffer length
+NPackerInfo                 (&PackerName$, Efficiency)
+NPackerName                 - Return the info packer name
+NPackerLongName             - Return the info packer long name
+NPackerDescription          - Return the info packer description
+NScanPackersList            - Scan the packers list...
+NGetPackerNumber            - Return the number of Xpk packers
+NGetNextPacker              - Return the next packer name
+NInitXpk                    - Initialize Xpk Environnement
+NUnPackTagList              (TagList)
+CludgeSound                 sound#,address
+StringSort                  list,sizeof.type[,offset] - sort from start of list
+ListBase                    (list)
+StringSortItem              list,sizeof.type[,offset] - sort from current list item
+StringSortDir               direction
+CludgeShapes                shape#,numshapes,address
+SafeToBlit                  shape,x,y
+LELoadShapes                shape#[,shape#],filename$[,palette#]
+LESaveShapes                shape#,shape#,filename$[,palette#]
+LECompressShapes            True|False
+LECludgeShapes              shape#,shape#,address,palette#[,copymemflag]
+LEInitShape                 shape#,width,height,depth
+LEScanShapes                startshape#,endshape#
+LEMaxShapeWidth
+LEMaxShapeHeight
+LEMaxShapeDepth
+PackPBM                     sourceaddr,destaddr,length
+UnpackIFF                   (sourceaddr,bitmap#[,numlines,xy_offset])
+ILBMPalette                 (sourceaddr,palette#[,#offset)
+ILBMGrab                    sourceaddr,bitmap#,palette#
+LoadIFF                     (filename$,bitmap[,palette])
+ChunkHeader                 (a$)
+UnPackPBM                   sourceaddr,destaddr,length
+IFFDepth                    address -- address of your ILBM IFF file
+IFFWidth                    address -- address of your ILBM IFF file
+IFFHeight                   address -- address of your ILBM IFF file
+IFFViewmode                 address -- address of your ILBM IFF file
+IsNonvolatile               -- returns true if library is open
+StoreNVData                 AppName,ItemName,data,byte_length
+GetCopyNV                   AppName,ItemName
+FreeNVData                  APTR
+GetNVList                   appname
+TimerReset
+PortSigBit                  msgport
+WorkbenchHere
+EZRequest                   [title$,]body$[,gadget$] | title$,body$,gadget$[,var..]
+Flip$                       (String$)
+InitArgParse                parameter$
+NextArg$                    - get next parameter
+EZOutput                    [win#]
+EZRequestArgs               args..
+EZSeparator                 char
+ClickWait
+ProgPath$
+ProgDir$
+ProgName$
+FromBlitz
+LtoS                        (longword) -- convert LONG to STRING
+ASCRaw                      (rawkey)
+RawASC                      (char)
+OpenFontPrefs               [filename$]
+CloseFontPrefs
+DefaultFontHeight           fonttype  (0=Icon,1=System,2=Screen)
+DefaultFontName             fonttype  (0=Icon,1=System,2=Screen)
+NextArgChar$                char[,disablestr,enablestr] - get next parameter up until char
+BInstr                      (String$,Findstring$)
+CreateMenuStrip             GTMenuList#
+GTSetMenu                   GTMenuList#
+GTUnSetMenu                 - removes the gtmenulist from the current window
+GTMenuTitle                 GTMenuList#,menu,title$
+GTMenuItem                  GTMenuList#,flags,menu,item[,itemtext$[,shortcut$[,mutualexclude[,UserData]]
+GTMenuState                 GTMenuList#[,Menu[,Item[,Subitem]]],On|Off
+GTSubItem                   GTMenuList#,flags,menu,item,subitem[,itemtext$[,shortcut$[,mutualexclude[,UserData]]]]
+GTMenuChecked               (GTMenuList#,Menu,Item[,Subitem])
+GTSetMenuChecked            GTMenuList#,Menu,Item[,Subitem],Off|On
+GTFreeMenu                  GTMenuList#,Menu[,Item[,Subitem]]
+GTGetUserData               (GTMenuList#,Menu,Item[,Subitem])
+PalRed                      (colour#)
+PalGreen                    (colour#)
+PalBlue                     (colour#)
+PaletteInfo                 palette#
+AGAPalRed                   (colour#)
+AGAPalGreen                 (colour#)
+AGAPalBlue                  (colour#)
+PalAdjust                   palette#,ratio.q[,start_col,end_col]
+FillPalette                 palette#,r,g,b[,start_col,end_col] - fill palette with r,g,b values
+AGAFillPalette              palette#,r,g,b[,start_col,end_col] - fill palette with AGA r,g,b values
+CopyColour                  sourcepal#,destpal#,colsource#,coldest#
+CPUCls                      bitmap#
+SaveCMAP                    palette#,filename$
+MergeBitplanes              srcbitmap,srcbitmap,destbitmap,numplanes
+ClearBitmap                 bitmap#,delay[,height,offset]
+FadeInBitmap                bitmapsource#,bitmapdest#,delay[,height,offset1,offset2]
+ZoomX4                      source#,dest#,sourceadd,destadd,width,height[,xy_select]
+Derez                       source#,dest#,sourceadd,destadd,derez_value,height
+ZoomXY                      xzoom,yzoom,height
+InitZoomXY                  source#,dest#,sourceadd,destadd
+ZoomX2                      source#,dest#,sourceadd,destadd,width,height
+GetZoomTables               - return pointer to array of tables
+ZoomX8                      source#,dest#,sourceadd,destadd,width,height
+ADDValue                    (bitmap#,x,y)
+ReduceX2                    source#,dest#,sourceadd,destadd,width,height
+ZoomyZoom                   bitmap#
+FNSPrint                    fontnum,x,y,a$/string_address[,prefs,colour]
+InstallFNS                  (fontnum,address)
+FNSOutput                   bitmap[,clip_update (On|Off)]
+FNSInk                      colour
+FNSPrefs                    prefs[,colour]
+FNSHeight                   (fontnum)
+FNSClip                     xmin,ymin,xmax,ymax
+FNSClipOutput               - set clipping zone to output bitmap size
+RemoveFNS                   fontnum
+FNSUnderline                (fontnum)
+FNSLength                   (fontnum,a$[,prefs])
+FNSVersion                  - returns quick, lastest version=1.1
+FNSOrigin                   [x,y]
+FNSWidth                    (fontnum)
+FNSLoad                     (fontname$,fontslot)
+FNSSlot
+FNSUnload                   fontslot
+FNSSetTab                   tab_size - set tab size in pixels
+FNSShadowPrint              fontnum,x,y,a$/string_address,[prefs,colour[,shadow]]
+InitSerialIO                baud,numbytes,inbuf,outbuf
+FinitSerialIO
+SetSerialMode               mode   -- determine master/slave
+EndSerialIO                 - disable serial read/write
+PutSerial                   address,bytes | byte
+GetSerial                   [address,bytes]
+FlushSerialIO               - make sure serial port is empty
+SyncSerial                  syncbyte
+DoSerialIO                  [numbytes-1]
+SetIOBuffers                inbuf,outbuf
+SetIOSpeed                  baudrate
+SetIOSize                   bytes
+CheckSerial
+SyncPut                     address,bytes
+SyncGet                     address,bytes
+ConvToPostFix               string,buffer
+PFEvaluate                  (string)
+PFRegisters                 *registerblock - pointer to registers
+PFErrorType                 - returns error number or 0 for none
+PFErrorText                 - returns error text corresponding to error
+PFIndirectAddr              - returns last indirect lookup
+Encrypt                     memadr,length[,wheel1,wheel2,wheel3]
+Decrypt                     memadr,length,wheel1,wheel2,wheel3[,mode]
+GetWheel                    wheel#
+AddNotify                   idno,filespec$
+RemNotify                   notify#
+CheckNotify
+WaitNotify
+GetDeviceList               flags
+NextDevice
+FreeDeviceList
+NotifyPort
+GetFileName                 filepath$
+GetPathName                 filepath$
+DeviceEntryType                 -- dev=0,dir=1,vol=2,late=3,nonbind=4
+AddVarTrace                 variable,string$,output - add a variable trace
+DelVarTrace                 variable$ - remove a trace on a named variable
+VarTraceWindow              - open the variable trace window on the debugger screen
+DisAsmWindow                [address] - open the disassembly window on the debugger screen
+CopperTrace                 address,[,offset] - offset<>0 for CopList objects
+ProcControl                 [On/Off]
+MemoryWindow                num#,address - open a memory window on the debugger screen
+DataTypeOpen                filename$
+DataTypeClose
+DataTypeName
+DataTypeBaseName
+DataTypeID
+DataTypeCreate              [&taglist]
+AttachDataType              window,id[,x,y,width,height] | window,id,&taglist
+DetachDataType
+DataTypeSuper
+DataTypeBitmap
+DataTypesPalette            palette#
+DataTypeWidth
+DataTypeHeight
+DataTypeDepth
+DataTypeReady
+SetDataTypeAttr             &taglist / attr,data[,attr,data..]
+GetDataTypeAttr             attribute
+DataTypeModeID              [taglist]]
+DataTypeGroup
+DoColSplit                  cols_adr,numlines,colour_register
+RedoColSplit                cols_adr,numlines,ccoffset
+CopperReset                 coplist#,startline[,ccoffset]
+CopperEnd
+CopperInfoBlock
+CopperCommand               copins1,copins2
+CopperMove                  register,value
+CopperWait                  x,y
+CopperSkip                  x,y
+GetCCOffset                 - get current custom copper offset
+CopperAGACol                col#,r,g,b
+CopperResetAdr              coplist#,startline
+ColSplitBplcon3             bplcon3 - low byte of bplcon 3
+OpenCD                      [devicename,unit] - open a CD compatible device
+CloseCD
+CDDoor                      on/off
+CDPlayTrack                 track#,numtracks
+CDReadTOC
+CDStatus
+CDStop
+CDVolume                    volume,lengthoffade
+CDNumTracks
+CDFirstTrack
+CDLastTrack
+CDTrackLength               track#
+CDUpdateInfo                - update track playing/time information
+CDFlush
+CDPause                     on/off
+CDRewind
+CDFastForward
+CDNormalSpeed
+CDSpeed                     speed
+CDTrackMins                 [offset] - mins for current track
+CDTrackSecs                 [offset] - secs for current track
+CDTrackPlaying              - current track being played
+NBoxFill                    (x1, y1, x2, y2) - Draw a filled box on the current OutPut -
+NPlot                       (x, y) - Draw a plot on the current OutPut -
+NLine                       (x1, y1, x2, y2) - Draw a line on the current OutPut -
+NCircle                     (x, y, Radius) - Draw a circle on the current OutPut -
+NEllipse                    (x, y, RadiusX, RadiusY) - Draw an ellipse on the current OutPut -
+NFrontColour                (Colour) - Change the front colour of the current OutPut -
+NBackColour                 (Colour) - Change the back colour of the current OutPut -
+NDrawingMode                (DrawMode) - Change the draw mode of the current OutPut -
+NDrawingOutput              (RastPort) - Change the current OutPut -
+NCopybitMap                 (BitMapID, SourceX, SourceY, DestX, DestY, Width, Height) - Copy the specified bitmap to Output -
+NCls                        (Colour) - Clear the current output with given colour -
+NLocate                     (x, y) - Set the cursor position for text output -
+NDPrint                     (Text$) - Print the specified text -
+NTextStyle                  (Style) - 1=Underline, 2=Bold, 4=Italic -
+NDrawingFont                (FontID) - Change the current font -
+NTextLength                 (String$) - Return the length in pixel of the string -
+NPoint                      (x, y) - Return the pixel colour at position (x,y) -
+NDrawingRastPort             - Return the current Drawing RastPort -
+NCursX                      - Return the current cursor X position -
+NCursY                      - Return the current cursor Y position -
+NInitLocale                  - Initialize locale for use
+NOpenCatalog                (CatalogName$, TagList) - Open a specified catalog file
+NCloseCatalog                - Close the opened catalog
+NGetCatalogString           (String number) - Get a text from an opened catalog
+NInitPicture                (#MaxPicture)
+NFreePicture                (#Picture) - Remove the specified picture from memory
+NUsePicture                 (#Picture) - Change the used picture
+NLoadPicture                (#Picture, Filename$)
+NPictureWidth               - Return the used picture width
+NPictureHeight              - Return the used picture height
+NPictureDepth               - Return the used picture depth
+NPictureToBitmap            (#Picture, BitmapID)
+NPictureID                   - Return the used picture pointer -
+NInitApp                    (#NumMaxAppID) - Initialize App library for use -
+NAddAppWindow               (#AppID, WindowID) - Transform a window into AppWindow -
+NRemoveAppWindow            (#AppID) - Remove the App feature -
+NAddAppMenu                 (#AppID, &Title$) - Add a menu in the 'Tools' menu -
+NRemoveAppMenu              (#AppID) - Remove the App menu -
+NAppEvent                   - Return -1 if nothing or the #AppID -
+NAppNumFiles                - Return number of file dropped on the window -
+NNextAppFile                - Return the next filename -
+NSetClipText                (String$) - Change the clipboard text -
+NGetClipText                - Return the current clipboard text -
+NMenuTitle                  (&Title$)
+NMenuItem                   (#Item, &Title$, &CommandKey$)
+NMenuSubItem                (#Item, &Title$, &CommandKey$)
+NMenuBar                    - Create a menu separator bar
+NMenuSubBar                 - Create a submenu separator bar
+NCreateMenu                 (#Menu, ScreenID)
+NAttachMenu                 (#Menu, WindowID)
+NSetMenuColour              (Colour)
+NInitMenu                   (NumMaxMenus, MaximumMenuItems)
+NFreeMenu                   (#Menu) - Free the specified menu -
+NMenuCheckItem              (#Item, &Title$, &CommandKey$, State)
+NMenuCheckSubItem           (#Item, &Title$, &CommandKey$, State)
+NMenuToggleItem             (#Item, &Title$, &CommandKey$, State)
+NMenuToggleSubItem          (#Item, &Title$, &CommandKey$, State)
+RXCreatePort                (name$)
+RXDeletePort
+RXReadPort
+RXWaitPort
+RXReplyMsg                  errcode[,result$]
+RXRunCommand                [portname$,]command$
+RXSendersName
+RXGetResult
+RXWaitResult
+RXSendCommand               [portname$,]command$
+RXNumArgs
+RXWaitReplies
+RXComResult
+RXGetArg                    argnum
+RXCreateMsg
+RXSendMsg                   [rexxmsg,]port$
+RXExecuteScript             scriptname$
+RXRunScript                 scriptname$
+RXSetMsgType                [msg,]type
+RXSetArg                    [msg,]argnum,string$
+RXResults                   On|Off
+RXPriority                  priority
+RXDefaultPort               portname$
+RXErrorCode                 [msg]
+RXNextArg                   argnum
+RXReturnCode
+AddAppWindow                (windownumber)
+DelAppWindow                (windownumber)
+AddAppMenu                  (id,text$)
+DelAppMenu                  (id)
+AddAppIcon                  (id,text$,filename$[,x,y])
+DelAppIcon                  (id)
+AppEvent
+AppEventType
+AppEventID
+NextAppFile
+AppFile                     (num)
+AppNumFiles
+AppLock
+AppMessage
+AppMsgPort
+AppEventIDCMP
+RIAnimInit                  (address,bitmap#,palette# [,xy_offset]|[,x,y])
+RINextAnimFrame             (bitmap#)
+AnimLoop                    On|Off
+RIAnimFrameCount
+RIAnimDepth                 address -- address of your animation file
+RIAnimWidth                 address -- address of your animation file
+RIAnimHeight                address -- address of your animation file
+CachesOn                    bitmask
+Reboot                       -- performs a cold reboot
+Lisa                         -- returns Lisa chip version
+MakeDir                     (dirname$)
+Rename                      (oldfilename$,newfilename$)
+MemFree
+GTTagValue                  ([tagvalue])
+Timer
+Min                         (a,b)
+CopyByte                    sourceaddr,destaddr,bytes
+CopyWord                    sourceaddr,destaddr,words
+CopyLong                    sourceaddr,destaddr,longs
+Max                         (a,b)
+FileSize                    (filename$)
+BLoad                       (filename$,[address,[,length,[offset,[memtype]]]])
+BSave                       (filename$,address/bank[,length])
+Start                       (bank)
+Length                      (bank)
+Erase                       bank
+EraseAll
+Reserve                     (length)|(bank,length[,requirements])
+NextBank                    [startbank]
+CachesOff                   bitmask
+FillMem                     address,length[,value]
+KeyCode
+BlitterDone
+WaitBlitter
+FindVolume                  (volumename)
+SwapBank                    (sourcebank,destbank)
+DeviceName$                 (volumename$)
+ChangeDir                   dir$
+BankLimit                   [numbanks]
+SaveExec                    filename$,list()
+Null                        (String$) ;Returns address of null-termed string
+ChipFree                    ;Returns largest block of free CHIP memory
+FastFree                    ;Returns largest block of free FAST memory
+LargestFree                 ;Returns largest block of memory available
+IntuitionBase                ;Returns Intuition Library base
+DosBase                      ;Returns DOS Library base
+GraphicsBase                 ;Returns Graphics Library base
+FFPBase                      ;Returns FFP Math Library base
+DiskFontBase                 ;Returns DiskFont Library base
+CommoditiesBase              ;Returns Commodities Library base
+IconBase                     ;Returns Icon Library base
+RexxSysBase                  ;Returns RexxSys Library base
+Request                     (Title$,text$,button$) ;OS 2.0 & above System Requester
+ActiveScreen                 ;Returns ADDRESS of current Intuition screen
+ScreenWidth                  ;Returns width in pixels of active screen
+ScreenHeight                 ;Returns height in pixels of active screen
+ActiveWindow                 ;Returns ADDRESS of current Intuition window
+WaitFor                     (IDCMP Code)  ;Delays until specified Intuition event occurs
+ShowRequesters              [0=Cancel] [1=On Workbench Screen] [2=In Current Window]
+WriteCD32Mem                (AppName$,FileName$,Address,Length/10)
+ReadCD32Mem                 (AppName$,FileName$,Address,Length/10)
+InitCD32                    ;returns true if ok, false if fails
+ExamineCD32                 ;-1=programdisk 0=nodisk n=number of tracks
+PlayCD32                    track#[,numtracks]
+StopCD32
+ControlCD32                 ;0=play 1=pause 2=ffwd 3=rewind
+TocCD32                     ;returns location of the toc read by Examine
+ConfigCD32                  [&TagList] ;can return &currentconfig
+ReadCD32                    (CD_Offset,Address,Length)
+NInitTagList                (#NumMaxTags) - Initialize the Tag lib for use -
+NFreeTagList                 - Free the memory took by the taglist -
+NAddTag                     (#TAG_ITEM, #TAG_DATA) - Add the tag to the current taglist -
+NResetTagList               #TAG_ITEM, #TAG_DATA) - Clear the taglist and add the value -
+NTagListID                  - Return the taglist location -
+NChangeTag                  Position, #TAG_ITEM, #TAG_DATA) - change the given the tag value -
+RetrieveCallHook
+NCreateCommodity            (Objects.l, Name$, Title$, Description$, Priority.b, Flag.b)
+NActivateCommodity          Status.l
+NCommodityActivateTranslater#Object.l, Status.l
+NCommodityActivateObject    #Object.l, Status.l
+NWaitCommodityEvent
+NCommodityEvent
+NCommodityType
+NCommodityID
+NCommodityCtrlCSignal
+NCommodityObjectSignal
+NCommodityCreateObject      (#Object.l, Filter$, *InputEvent)
+NCommodityDeleteObject      #Object.l
+NCommodityAddInputEvent     *InputEvent
+NCommodityChangeTranslater  #Object.l, *InputEvent
+NCommodityIXChangeFilter    (#Object.l, *InputXpression)
+NCommodityChangeFilter      (#Object.l, Filter$)
+NSortUp                     (Array(), Start, End) - Sort the portion of the array
+NSortDown                   (Array(), Start, End) - Sort the portion of the array
+NInitToolType               (Objects.l, *WBStartup)
+NReadToolType               (#Object.w, IconName$)
+NWriteToolType              (#Object.w, Array(), IconName$)
+NFreeToolType               #Object.w
+NGetNumberOfToolType        (#Object.w)
+NGetNextToolTypeString      (#Object.w)
+NFindToolType               (#Object.w, ToolName$)
+NMatchToolTypeValue         (ToolType.l, Value$)
+NCheckToolTypeString        (ToolType$, ToolTypeString$)
+UPeek                       (ad.l); returns a word equal to unsigned value of byte at ad
+DotProduct                  &N.Vector_Type,&L.Vector_Type
+ApplyMatrix                 &M.Matrix_Type,&V.Vector_Type,&R.Vector_Type
+VectorMagnitude             (&V.Vector_Type) returns quick
+VectorAngle                 (&N.Vector_Type,&L.Vector_Type), returns quick
+UnitVector                  &N.Vector_Type
+CrossProduct                &N.Vector_Type,&L.Vector_Type,&Result.Vector_Type
+SubtractVectors             &N.Vector_Type,&L.Vector_Type,&Result.Vector_Type
+MakeVector                  x.w,y.w,z.w,&V.Vector_Type
+DepthSort                   &Index.q,&Assoc1.l,&Assoc2.l,items.l
+ShellSort                   &array.l,items.l
+QMULS                       (v1.q,v2.q) Fast 020 quick multiply
+FastApply                   &M.Matrix_Type,&V.Vector_Type,&R.Vector_Type
+FastVectorAngle             (&N.Vector_Type,&L.Vector_Type), returns quick
+FastUnitVector              &N.Vector_Type
+ShellDepthSort              &array.l,items.l
+CInitDraw                   Addr Chunky Object.l
+CHLine                      x1,x2,y,c.b
+CDrawDone
+CLine                       x1,y1,x2,y2,c
+CCls                        colour mask
+CVirtualBuffers             RWE PRIVATE
+CTriangle                   &pointlist,color.b
+CTrianglef                  &pointlist,color.b
+SSLoadModule                (Module#,Name)
+SSFreeModule                (Module#)
+SSInitMedLibrary            (Returns TRUE if no errors occured.)
+SSDeInitMedLibrary          (Returns TRUE if no errors occured.)
+SSPlayMedModule             (Module#)
+SSContinueMedModule         (Module#)
+SSStopMedModule
+SSSetMedTempo               (Tempo value)
+SSSetMedModuleNum           (Song#) Multi-Modules only!
+SSInitOctaMEDLibrary        (Returns TRUE if no errors occured.)
+SSDeInitOctaMEDLibrary      (Returns TRUE if no errors occured.)
+SSPlayOctaMEDModule         (Module#)
+SSContinueOctaMEDModule     (Module#)
+SSStopOctaMEDModule
+SSSetOctaMEDModuleNum       (Song#) Multi-Modules only!
+SSInitSidLibrary            (Returns TRUE if no errors occured.)
+SSDeInitSidLibrary          (Returns TRUE if no errors occured.)
+SSPlaySidSong               (Module#,Tune#)
+SSStopSidSong
+SSPauseSidSong              (Use SSContinueSidSong to unpause.)
+SSContinueSidSong
+SSFastForwardSidSong        (Rate)
+SSRewindSidSong             (Rate)
+SSDecodeSidSong             (Module#,Address,Length)
+SSSetSidFrequency           Freq: 50/60
+XBDiskPlay                  Filename$,Channelmask[,Vol1[,Vol2...]]
+XBDiskBuffer                Bufferlen
+XBLoadSound                 Sound#,Filename$
+XBSound                     Sound#,Channelmask[,Vol1[,Vol2...]]
+XBVolume                    Channelmask,Vol1[,Vol2...]
+XBFilter                    On|Off
+XBLoopSound                 Sound#,Channelmask[,Vol1[,Vol2...]]
+XBInitSound                 Sound#,Length[,Period[,Repeat]]
+XBSoundData                 Sound#,Offset,Data
+XBPeekSound                 (Sound#,Offset)
+XBDecodeSound               Sound#,MemoryLocation
+XBSetPeriod                 Sound#,Period
+LoadTrackerModule           (TrackerModule#,Name)
+StartTracker                (TrackerModule#)
+StopTracker                 Stops module from playing
+DecodeModule                TrackerModule#,ModuleAddress
+GetTrackerSize              (TrackerModule#)
+GetTrackerLocation          (TrackerModule#)
+FreeTrackerModule           TrackerModule#
+GetTrackerEvent
+CheckTrackerEvent
+WaitTrackerEvent
+CheckTrackerID              (TrackerModule#)
+GetModuleName$              (TrackerModule#)
+PauseModule
+ChangeTrackerVBlank
+PlayTracker
+TrackerVolume               (Volume Range: 0-64)
+ChangeTrackerMask           Channel Mask
+ModulePatterns              (Module #)
+ModuleSampleName$           (Module#,Sample#[0-30])
+GetPatternPosition
+SetSongPatternPosition      Pattern#,Position#
+GetTrackerVolume            (TrackerChannel#)
+GetTrackerNote              (TrackerChannel#)
+SetTrackerTempo             Tempo
+GetTrackerInstrument        (TrackerChannel#)
+GetSongPosition
+GetSongLength
+StartTrackerPatPos          (TrackerModule#,Pattern#,Position#)
+GetSampleLocation           (Sample#)
+GetSampleLength             (Sample#)
+GetSampleName$              (Sample#)
+BuildNoteTable
+GetTrackerNoteNumber        (TrackerChannel#)
+TrackerPlayLoop             (Continuous play.)
+TrackerPlayOnce             (Play module once then stop.)
+TrackerModuleEnd            (TRUE if module has finished playing.)
+TrackerDeInitialise         (De-Allocates CIA timers.)
+TrackerReInitialise         (Re-Allocates CIA timers.)
+AllocatePatternMem          (Allocates 1024byte buffer)
+GetChannelInfo              (Pattern#,Channel#)
+TrackerPatternToMem         Pattern #
+MUISetMaximumTags           max
+MUIApplicationTitle         title$
+MUIApplicationVersion       ver$
+MUIApplicationCopyright     copyright$
+MUIApplicationAuthor        author$
+MUIApplicationDescription   desc$
+MUIApplicationBase          base$
+MUIAddApplicationTags       &TagList | Tag,Value [,Tag,Value...]
+MUICreateApplication
+MUIRemoveApplication
+MUIApplicationLoc
+MUIApplicationObj           To MUIObject#
+MUIAddSubWindow             MUIObject#
+MUIFreeObject               MUIObject#
+MUICreateWindow             MUIObject#,title$ [,id$ [,MUIObject#]]
+MUIOpenWindow               (MUIObject#)
+MUICloseWindow              MUIObject#
+MUIAddTags                  MUIObject#,&TagList | MUIObject#,Tag,Value [,Tag,Value...]
+MUINewObject                MUIObject#,Class$,&TagList | MUIObject#,Class$,Tag,Value [,Tag,Value...]
+MUIMakeObject               MUIObject#,Type,&TagList | MUIObject#,Type,Tag,Value [,Tag,Value...]
+MUIHVSpace                  MUIObject#
+MUIHSpace                   MUIObject#,x
+MUIVSpace                   MUIObject#,x
+MUIString                   MUIObject#,Contents$,MaxLen
+MUIKeyString                MUIObject#,Contents$,MaxLen,ControlChar$
+MUICheckMark                MUIObject#,Selected
+MUIKeyCheckMark             MUIObject#,Selected,ControlChar$
+MUISimpleButton             MUIObject#,Name$
+MUIKeyButton                MUIObject#,Name$,Key$
+MUICycle                    MUIObject#,  Entry$ [,Entry$...] | *Array
+MUIKeyCycle                 MUIObject#,Key$,  Entry$ [,Entry$...] | *Array
+MUIRadio                    MUIObject#,Name$,  Entry$ [,Entry$...] | *Array
+MUIKeyRadio                 MUIObject#,Name$,Key$,  Entry$ [,Entry$...] | *Array
+MUISlider                   MUIObject#,Min,Max,Level
+MUIKeySlider                MUIObject#,Min,Max,Level,Key$
+MUILabel                    MUIObject#,Label$,Flags
+MUIAddObjHGroup             To MUIObject#,MUIObject#
+MUICreateHGroup             MUIObject#
+MUIAddObjVGroup             To MUIObject#,MUIObject#
+MUICreateVGroup             MUIObject#
+MUISet                      MUIObject#,&TagList | MUIObject#,Attr,Value [,Attr,Value...]
+MUIGet                      (MUIObject#,Attribute)
+MUIDoMethod                 MUIObject#,Method,  Tag [,Tag...] | &TagList
+MUINotify                   MUIObject#,Tag,Value,MUIObject#,  Tag [,Tag...] | &TagList
+MUIEvent
+MUIWaitEvent
+MUINumericButton            MUIObject#,Format$,Min,Max
+MUIAddObjPage               To MUIObject#,MUIObject#
+MUICreatePage               MUIObject#  ,Page1$ [,Page2$...] | &Page$(0)
+MUIList                     MUIObject#,Format$,Array$()
+MUIListView                 To MUIObject#,MUIObject#
+MUIObjLoc                   (MUIObject#)
+MUIRequest                  To MUIObject#,Flags,Title$,Gadgets$,Format$  [,Param...]
+MUIPopButton                MUIObject#,Image
+MUIImageButton              MUIObject#,Shape#
+MUIInsertSingle             MUIObject#,Position,  Entry$ [,Entry$...] | *Array
+MUIRemoveSingle             MUIObject#,Position
+MUIRedrawSingle             MUIObject#,Position
+MUIListTitle                MUIObject#,  Title$ [,Title$...] | *Array
+MUICreateMenu               MUIObject#,GTMenuList#,Flags [,TitleUData1 [,...]]
+MUISetMenu                  To MUIObject#,MUIObject#
+MUIFindUData                To MUIObject#,MUIObject#,UserData
+MUIBalanceObject            MUIObject#
+MUINotifyApp                MUIObject#,Tag,Value,ReturnID
+MUIAddObjsHGroup            To MUIObject#,MUIObject# [,MUIObject# [,...]]
+MUIAddObjsVGroup            To MUIObject#,MUIObject# [,MUIObject# [,...]]
+MUIAddObjsPage              To MUIObject#,MUIObject# [,MUIObject# [,...]]
+MUIBitmapObject             MUIObject#,BitMap# [,Palette#]
+MUIShapeObject              MUIObject#,Shape# [,Palette#]
+MUIChangeBitmap             MUIObject#,BitMap# [,Palette#]
+MUIChangeShape              MUIObject#,Shape# [,Palette#]
+MUIRedraw                   MUIObject#,Flags
+MUIListHook                 On|Off
+MUIChangeList               MUIObject# [,Array$(),Position]
+MUIGetCM                    (MUIObject#)
+MUIGetCycle                 (MUIObject#)
+MUIGetString$               (MUIObject#)
+MUISetCM                    MUIObject#,Selected
+MUISetCycle                 MUIObject#,Selected
+MUISetString                MUIObject#,String$
+MUINList                    MUIObject#,Format$,Array$()
+MUINListView                To MUIObject#,MUIObject#
+MUINListHook                On|Off
+MUIBetterString             MUIObject#,Contents$,MaxLen
+MUIKeyBetterString          MUIObject#,Contents$,MaxLen,ControlChar$
+MUICreateHVirtGroup         MUIObject#
+MUICreateVVirtGroup         MUIObject#
+MUIBetterBalance            MUIObject#
+MUIWeight                   MUIObject#,Lbs
+MUIVertWeight               MUIObject#,Lbs
+MUIHorizWeight              MUIObject#,Lbs
+MUICycleChain               MUIObject#,Chain
+MUICycleChains              Chain,MUIObject# [,MUIObject# [,...]]
+MUIGroupSpacing             MUIObject#,Pixels
+MUIGroupVSpacing            MUIObject#,Pixels
+MUIGroupHSpacing            MUIObject#,Pixels
+MUIText                     MUIObject#,Contents$,SetVMax
+MUITextContents             MUIObject#,Contents$
+MUIShortHelp                MUIObject#,Help$
+MUIHookToNList              MUIObject#,Format$,*Construct,*Display,*Destruct
+MUINListEntries             (MUIObject#)
+MUINListGetActive           (MUIObject#)
+MUINListSetActive           MUIObject#,Entry
+MUIAllocDispatcherHook      (*HookTo)
+MUINewObjectClass           MUIObject#,ClassPtr,ClassID,&TagList
+MUICreateCustomClass        (Base,Supername$,SuperMCC,DataSize,DispatcherHook)
+MUIDeleteCustomClass        (*MCC)
+MUICDoMethodA               (Obj,Message)
+MUICDoMethod                (Obj,MethodID,Tag[,Tag..])
+MUIDoSuperMethodA           (Class,Obj,Message)
+MUIDoSuperMethod            (Class,Obj,MethodID,Tag[,Tag..])
+MUICoerceMethodA            (Class,Obj,Message)
+MUICoerceMethod             (Class,Obj,MethodID,Tag[,Tag..])
+MUISetSuperAttrs            (Class,Obj,Tag[,Tag..])
+InitList                    list#,var
+AddListItem                 list#
+SetListItem                 list#,var
+NextListItem                list#
+GetListItem                 list#,var
+PrevListItem                list#
+FirstListItem               list#
+LastListItem                list#
+AddFirstListItem            list#
+AddLastListItem             list#
+DelListItem                 list#
+AddrListItem                list#
+ReqFileRequest              ([title$][,flags])
+ReqFileLoc
+ReqOutput                   windowptr
+ReqFlags                    flags
+ReqColour                   (colour)
+ChDir                       (Path$) ;Change directory: Function version returns FALSE for failure
+PathLock                    ;Returns lock of current path
+MoreEntries                 ;TRUE=Another entry was read:  FALSE=No more entries
+EntryName$                  ;Filename of current directory entry
+EntryDIR                    ;Returns TRUE if entry is a sub-directory, FALSE for files
+EntryBits$                  ;Returns protection-bits for directory entry [HSARWED]
+EntrySize                   ;Returns size in bytes of current directory entry
+EntryDate                   ;Returns entry date as number of days since 1/1/1978
+EntryHour                   ;Returns hour (0-23) entry was last changed
+EntryMins                   ;Returns minutes (0-59) entry was last changed
+EntrySecs                   ;Returns seconds (0-59) entry was last changed
+EntryComment$               ;Returns comment-string associated with entry
+CopyFile                    (File1$,File2$) ;Returns TRUE if file was copied successfully
+SetCopyBuffer               256+  ;Set disk buffer for 'CopyFile'
+NameFile                    (OldName$,NewName$) ;Returns TRUE if file could be renamed
+MakeDir                     (PathName$) ;Returns TRUE if directory could be created
+AnalyzeDisk                 (DriveName$) ;Returns TRUE if device name is valid
+DiskUnit                    ;Returns unit# of last drive analyzed
+DiskErrors                  ;Number of soft errors on last drive analyzed
+DiskCapacity                ;Capacity in bytes of last drive analyzed
+DiskUsed                    ;No. bytes used of last analyzed drive
+DiskBlocks                  ;Bytes per block of last drive analyzed
+DiskFree                    ;No. free bytes on last analyzed disk
+Freq                        Channelmask,period
+Quiet                       ChannelMask ;Stops specified currently playing sounds
+VWaitPos                    RasterLine
+Ticks                        ;'ticks' since last ResetTimer (1/50 secs. PAL, 1/60 NTSC)
+ResetTimer                   ;Resets timer to zero 'Ticks.'
+JoyC                        (Port)  ;For 2-button controllers:  Detects buttons pressed
+CheckAGA                     ;Returns 'TRUE' for AGA machines, otherwise returns 'FALSE'
+PeekTo$                     (Address,byte)  ;Reads memory into string upto specified byte
+ForcePAL                     ;Forces screen mode to PAL (50hz)
+ForceNTSC                    ;Forces screen mode to NTSC (60hz)
+Depth                       (Bitmap#) ;Returns DEPTH of specified bitmap
+ClickMouse                   ;Waits for left mouse button to be CLICKED
+NLoadFont                   (#Font, FontName$, YSize) - Return a FontID
+NUseFont                    (#Font) - Change the used font
+NCloseFont                  (#Font) - Close the specified font
+NInitFont                   (#NumFontMax) - Initialize Font for use
+NFontID                     - Return the used intuifont pointer -
+NButtonGadget               (#Gadget, x, y, Width, Height, Text$, TagList)
+NCheckBoxGadget             (#Gadget, x, y, Width, Height, Text$, TagList)
+NIntegerGadget              (#Gadget, x, y, Width, Height, Text$, TagList)
+NListViewGadget             (#Gadget, x, y, Width, Height, Text$, TagList)
+NNumberGadget               (#Gadget, x, y, Width, Height, Text$, TagList)
+NCycleGadget                (#Gadget, x, y, Width, Height, Text$, TagList)
+NPaletteGadget              (#Gadget, x, y, Width, Height, Text$, TagList)
+NScrollerGadget             (#Gadget, x, y, Width, Height, Text$, TagList)
+NSliderGadget               (#Gadget, x, y, Width, Height, Text$, TagList)
+NStringGadget               (#Gadget, x, y, Width, Height, Text$, TagList)
+NTextGadget                 (#Gadget, x, y, Width, Height, Text$, TagList)
+NSetGadgetFont              &FontAttr structure !
+NSetGadgetFlags             Flags
+NGadgetAttrs                #Gadget, #TAG_ITEM, #TAG_DATA
+NGetStringText              (#Gadget)
+NUnused1
+NUseGadgetList              #GadgetList
+NCreateGadgetList           (#GadgetList, ScreenID)
+NAttachGadgetList           #GadgetList, WindowID
+NUnused6
+NUnused7
+NUnused8
+NUnused9
+NUnused10
+NUnused11
+NUnused12
+NUnused13
+NUnused4
+NUnused3
+NInitGadget                 (NumMaxGadgetLists)
+NOptionGadget               (#Gadget, x, y, Width, Height, Text$, TagList)
+NUnused2
+NDisableGadget              #Gadget, State
+NActivateGadget             #Gadget
+NRefreshGadget              #Gadget
+NNoGadgetBorder             #Gadget
+NFreeGadgetList             #GadgetList
+NSetStringText              #Gadget, Text$
+NRefreshGadgetList          - Refresh the current gadget list.
+NUnused14
+NPokeB                       Adress, Byte
+NPokeW                       Adress, Word
+NPokeL                       Adress, Long
+NPeekB                      (Address)
+NPeekW                      (Address)
+NPeekL                      (Address)
+NPeek$                      (Address)
+NVWait                       - Wait until next Vertical Blank
+NMouseWait                   - Wait until a mouse press
+NFalse                       - Set variable type to False -
+NTrue                        - Set variable type to True -
+NOff                         - Set variable type to Off -
+NOn                          - Set variable type to On -
+NProgramPriority            (New Priority) - Set the program priority -
+NUsePalette                 (#Palette)
+NPalRgb                     (ColorIndex, R, G, B)
+NDisplayPalette             (#Palette, ScreenID)
+NRed                        (ColorIndex) - Get the Red value -
+NGreen                      (ColorIndex) - Get the Green value -
+NBlue                       (ColorIndex) - Get the Blue value -
+NGetScreenPalette           (#Palette, ScreenID) - Get the palette from screen -
+NCreatePalette              (#Palette, NbColors) - Create an empty palette -
+NRgb                        (ScreenID, ColourIndex, R, G, B)
+NFadeOut                    (#Palette, Step, NbLoop, ScreenID) - FadeOut the screen
+NFreePalette                (#Palette) - Free the specified palette -
+NInitPalette                (#MaxNumPalette) - Init Palette environnement -
+NGetPicturePalette          (#Palette, PictureID) - Create a new palette take from picture -
+NFade                       (#Palette1, #Palette2, Step, NbLoop, ScreenID)
+NNbColour                   - Return the number of colour of the current palette -
+NASyncFade                  (#Palette1, #Palette2, Step, NbLoop, ScreenID)
+NASyncFadeStatus            - Return -1 if the fade is running, 0 else -
+NWbToScreen                 (#Screen) - Try to find the Workbench Screen -
+NFindScreen                 (#Screen, Name$) - Seek the screen name or take the default public screen -
+NScreen                     (#Screen, Width, Height, Depth, TagList) - Open a new screen -
+NSMouseY                    - Return the MouseY Position on the screen
+NSMouseX                    - Return the Mouse X Position on the screen
+NScreenWidth                - Return the Width of the screen
+NScreenHeight               - Return the Height of the screen
+NShowScreen                 - Show the screen
+NHideScreen                 - Hide the screen -
+NUseScreen                  (#Screen) - Set the specified screen as used -
+NCloseScreen                (#Screen) - Close the specified screen -
+NInitScreen                 (#NumScreenMax) - Init Screen Environenement -
+NScreenID                   - Return the intuition screen pointer -
+NScreenRastPort             - Return the used screen rastport pointer -
+NViewPort                   - Return the used screen viewport address -
+NObtainBestPen              (r, g, b, precision) - Return the most near colour of the screen -
+NReleasePen                 (Colour Index) - release the pen -
+NWBorderTop                 - Return the window bar height (with title) -
+NWBorderLeft                - Return the window border left length -
+NWBorderRight               - Return the window border right length -
+NWBorderBottom              - Return the window border bottom length -
+NSBarHeight                 - Return the screen bar height -
+NSFontHeight                - Return the actual screen font height -
+NFindFrontScreen            (#Screen) - Take the front most screen -
+NScreenDepth                - Return the depth of the current screen -
+NExecBase                   - Return the exec.library base pointer -
+NDosBase                    - Return the dos.library base pointer -
+NIntuitionBase              - Return the intuition.library base pointer -
+NGraphicsBase               - Return the graphics.library base pointer -
+PICreateRequest             (Title$,Min,Max [,NoGagdet])
+PIEndRequest
+PIUpdateRequest             (Value)
+RTEZRequest                 (Title$,BodyText$,GadgetText$ [,ReqPosition [,DefaultResponse,Flags]])
+RTEZLoadFile                (Title$,Filename$)
+RTEZFontRequest             (Title$)
+RTEZScreenModeRequest       (Title$ [,DisplayFlags])
+RTEZPaletteRequest          (Title$,FirstColour)
+RTEZGetLong                 (Title$,BodyText$ [,DefaultValue])
+RTEZGetLongRange            (Title$,BodyText$,Min,Max [,DefaultValue])
+RTEZGetString               (Title$,BodyText$,MaxChars [,DefaultString])
+RTEZSaveFile                (Title$,Filename$)
+RTEZSetDefaultDirectory     Requester#,Directory$
+RTEZPathRequest             (Title$)
+RTLockWindow                (Window#)
+RTUnlockWindow              Window#,Lock
+RTEZSetPattern              Requester#,Pattern$
+RTEZFreePattern             Requester#
+RTEZFlagsRequest            (Title$,BodyText$,GadgetText$,IDCMPFlags [,ReqPosition])
+RTRequest                   (BodyText$,GadgetText$,TagList)
+RTFileRequest               (Title$,FileName$,TagList)
+RTEZMultiLoadFile           (Title$)
+RTNextPathEntry
+RTASyncRequest              (Title$,BodyText$,GadgetText$)
+RTCheckASyncRequest
+RTEndASyncRequest
+RTVersion
+RTRevision
+IsReqToolsActive
+RTASyncPaletteRequest       (Title$,FirstColour)
+RTCheckASyncPaletteRequest
+RTEndASyncPaletteRequest
+MWrapXParticles             CoordinateList.l,NumPoints.l ; Bring particles in from left/right edges (Not Ptr.l)
+MWrapYParticles             CoordinateList.l,NumPoints.l ; Bring particles in from top/bottom edges
+MAddToXParticles            CoordinateList.l,NumPoints.l,IncA.l[,IncB.l] ; Add X components of [two sets of] increments
+MAddToYParticles            CoordinateList.l,NumPoints.l,IncA.l[,IncB.l] ; Add Y components of [two sets of] increments
+MAddMode                    ; Returns value 7 which represents `add' mode in the blit modes
+Mc2pCPUmode                 CPU.b ; Set cpu c2p uses. Use `MProcessor' or `Processor'. <4=030-, >3=040+
+Mc2pWindow                  c2pWindow#.w,OpWidth.w,OpHeight.w[,SourceBWidth.w[,Processor.b],PlanarWidth.w,PlanarHeight.w]
+Mc2pWindowWidth             [(c2pWindowNumber.w)] ; Returns width of c2pWindow
+Mc2pWindowHeight            [(c2pWindowNumber.w)] ; Returns height of c2pWindow
+Mc2pWindowNewHeight         c2pWindow#.w,NewHeight.w ; Change height of already defined c2p object
+Mc2p                        [[c2pWindow#.w],Chunky.l],Planar.l ; Convert chunky to planar (Use Mc2pWindow first)
+MReservec2pWindows          [(]NumberOfWindows.w[)] ; Reserve structure-memory for c2pWindows
+MReserveShapes              [(]NumberOfShapes.w[,ShapeBankToUse.w][)] ; Reserve structure-memory for Shapes
+MReserveBitmaps             [(]NumberOfBitmaps.w[)] ; Reserve structure-memory for Bitmaps
+MShape                      [(]ShapeNumber.w,Width.w,Height.w[)] ; Allocmem for shape data
+MBitmap                     [(]BitmapNumber.w,Width.w,Height.w[)] ; Allocmem for bitmap data
+MAutoCookie                 On/Off ; Autocreation of ByteForByte cookies
+MAutoStencil                On/Off ; Autocreation of ByteForByte stencils
+MFreec2pWindow              [Firstc2pWindow.w[,Lastc2pWindow.w]] ; Free a c2pWindow, range of c2pWindows or all c2pWindows
+MFreeShape                  [FirstShape.w[,LastShape.w]] ; Free a Shape, range of shapes, or all shapes
+MFreeBitmap                 [FirstBitmap.w[,LastBitmap.w]] ; Free a Bitmap, range of bitmaps, or all bitmaps
+MShapeWidth                 [(ShapeNumber.w)] ; Returns width of Shape
+MBitmapWidth                [(BitmapNumber.w)] ; Returns width of Bitmap
+MShapeHeight                [(ShapeNumber.w)] ; Returns height of Shape
+MBitmapHeight               [(BitmapNumber.w)] ; Returns height of Bitmap
+MAddrc2pWindow              [(c2pWindowNumer.w)] ; Returns address of c2pWindow structure
+MAddrShape                  [(ShapeNumber.w)] ; Returns address of Shape structure
+MAddrBitmap                 [(BitmapNumber.w)] ; Returns address of Bitmap structure
+MHandle                     ShapeNumber.w,XOffset.w,YOffset.w ; Set handle of Shape
+MBitmapOrigin               BitmapNumber.w,XOffset.w,YOffset.w ; Set origin of Bitmap
+MUsec2pWindow               Mainc2pWindowNum.w[,Secondc2pWindowNum.w[,Thirdc2pWindowNum.w]] ; Current to use
+MUseShape                   MainShapeNum.w[,SecondShapeNum.w[,ThirdShapeNum.w]] ; Current Shape(s) to use
+MUseBitmap                  MainBitmapNum.w[,SecondBitmapNum.w[,ThirdBitmapNum.w]] ; Current Bitmap(s) to use
+MUsedc2pWindow               ; Returns currently used c2pWindow
+MUsedShape                   ; Returns currently used Shape
+MUsedBitmap                  ; Returns currently used Bitmap
+MCludgeShape                ShapeNumber.w,Width.w,Height.w,Memory.l ; Cludge shape from existing mem
+MCludgeBitmap               BitmapNumber.w,Width.w,Height.w,Memory.l ; Cludge bitmap from existing mem
+MAutoUsec2pWindows          True/False ; Automatically `use' new c2pWindows. <>0=True
+MAutoUseShapes              True/False ; Automatically `use' new shapes. <>0=True
+MAutoUseBitmaps             True/False ; Automatically `use' new bitmaps. <>0=True
+MMakeCookie                 [FirstShape.w[,LastShape.w]] ; Make a cookie for a shape, range of shapes, or all shapes
+MMakeStencil                [FirstBitmap.w[,LastBitmap.w]] ; Make a stencil for a bitmap, range of bitmaps, or all bitmaps
+MFreeCookie                 [FirstShape.w[,LastShape.w]] ; Free a Shape's cookie, a range of Shape's cookies, or all cookies
+MFreeStencil                [FirstBitmap.w[,LastBitmap.w]] ; Free's a Bitmap's stencil, a range of stencils or all stencils
+MAutoShapeWrap              On/Off ; Auto X&Y Handle-wrapping for Shapes
+MAutoBitmapWrap             On/Off ; Auto X&Y Handle-Wrapingp for Bitmaps
+MShapeWrap                  ShapeNumber.w,On/Off ; De/Activate X&Y Handle-Wrap for Shape
+MBitmapWrap                 BitmapNumber.w,On/Off ; De/Activate X&Y Handle-Wrap for Bitmap
+MCludgeShapeStruct          [(]SourceShape.w,DestShape.w[)] ; Copy definition-data only
+MCludgeBitmapStruct         [(]SourceBitmap.w,DestBitmap.w[)] ; Copy definition-data only
+MCopyc2pWindow              Sourcec2pWindow.w,Destc2pWindow.w ; Copy definition-data only
+MShapeWindow                [(]SourceShape.w,DestShape.w,X.w,Y.w,Width.w,Height.w[)] ; Cludge Shape within a Shape
+MBitmapWindow               [(]SourceBitmap.w,DestBitmap.w,X.w,Y.w,Width.w,Height.w[)] ; Cludge Bitmap within a Bitmap
+MBitmapShape                [(]SourceBitmap.w,DestShape.w[)] ; Copy definition-data only
+MShapesBitmap               [(]SourceShape.w,DestBitmap.w[)] ; Copy definition-data only
+MAutoCookieXFlip            On/Off ; Auto X-Flip for Shape's cookie
+MAutoCookieYFlip            On/Off ; Auto Y-Flip for Shape's cookie
+MAutoStencilXFlip           On/Off ; Auto X-Flip for Bitmap's stencil
+MAutoStencilYFlip           On/Off ; Auto Y-Flip for Bitmap's stencil
+MAutoCookieFlip             On/Off ; Auto X&Y Cookie-Flip for Shapes
+MAutoStencilFlip            On/Off ; Auto X&Y Stencil-Flip for Bitmaps
+MShapeXFlip                 ShapeNumber.w ; Horizontally flip a Shape (see MAutoCookieFlip)
+MShapeYFlip                 ShapeNumber.w ; Vertically flip a Shape (see MAutoCookieFlip)
+MBitmapXFlip                BitmapNumber.w ; Horizontally flip a Bitmap (see MAutoStencilFlip)
+MBitmapYFlip                BitmapNumber.w ; Vertically flip a Bitmap (see MAutoStencilFlip)
+MCookieXFlip                ShapeNumber.w ; Horizontally flip a Shape's cookie
+MCookieYFlip                ShapeNumber.w ; Vertically flip a Shape's cookie
+MStencilXFlip               BitmapNumber.w ; Horizontally flip a Bitmap's stencil
+MStencilYFlip               BitmapNumber.w ; Vertically flip a Bitmap's stencil
+MAutoShapeClip              Status.b ; Auto-clip new Shapes. On/Off
+MAutoBitmapClip             Status.b ; Auto-clip new Bitmaps. On/Off
+MShapeClip                  ShapeNumber.w[,X.w,Y.w,Width.w,Height.w][,Active] ; Active=On/Off. Define Shape's clip window
+MBitmapClip                 BitmapNumber.w[,X.w,Y.w,Width.w,Height.w][,Active] ; Active=On/Off. Define Bitmap's clip window
+MGetaShape                  ShapeNumber.w,X.w,Y.w,Width.w,Height.w[,Block?,StencilIsCookie?] ; Grab shape from bitmap
+MGetaBitmap                 BitmapNumber.w,X.w,Y.w,Width.w,Height.w[,Block?,CookieIsStencil?] ; Grab bitmap from shape
+MScroll                     X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w[,CustomOffsets.l]] ; Copy graphic
+MScrollShape                X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w[,CustomOffsets.l]] ; Copy graphic
+MScrollStencil              X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w[,CustomOffsets.l]] ; Copy sten to sten
+MScrollCookie               X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w[,CustomOffsets.l]] ;Copy cook to cook
+MMaskScroll                 X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w] ; Copy bitmap graphic with stencil-cut
+MMaskScrollShape            X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w] ; Copy shape graphic with cookie-cut
+MMaskScrollStencil          X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w];Copy stencil2stencil & stencil-cut
+MMaskScrollCookie           X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w] ; Copy cookie to cookie & cookie-cut
+MScrollBitmapToShape        X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w[,CustomOffsets.l]];bitmap 2 shape
+MScrollShapeToBitmap        X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w[,CustomOffsets.l]] ;shape 2 bitmap
+MScrollStencilToCookie      X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w[,CustomOffsets.l]]; sten2cookie
+MScrollCookieToStencil      X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w[,CustomOffsets.l]] ; cookie2sten
+MMaskScrollBitmapToShape    X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w] ; Copy bitmap to shape & cut
+MMaskScrollShapeToBitmap    X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w] ; Copy shape to bitmap & cut
+MMaskScrollStencilToCookie  X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w] ;Copy stencil2cookie & cut
+MMaskScrollCookieToStencil  X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w] ; Copy cookie2stencil & cut
+MBlockScroll                X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w] ; BlockCopy graphic
+MBlockScrollShape           X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w] ; BlockCopy graphic
+MBlockScrollStencil         X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w] ; BlockCopy stencil to stencil
+MBlockScrollCookie          X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w] ; BlockCopy cookie to cookie
+MBlockScrollBitmapToShape   X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w] ; BlockCopy bitmap to shape
+MBlockScrollShapeToBitmap   X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w] ; BlockCopy shape to bitmap
+MBlockScrollStencilToCookie X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w];BlockCopy stencil2cookie
+MBlockScrollCookieToStencil X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w] ; BlockCopy cookie2stencil
+MCPU                        Processor.b ; Set cpu routines allowed to use. CAREFUL!! Try using `MProcessor' or `Processor'
+MCls                        [Colour] Clear a bitmap to colour 0 or the specified colour (in DrawingMode)
+MClsShape                   [Colour] Clear a shape to colour 0 or the specified colour (in DrawingMode)
+MClsStencil                 [Colour] Clear a stencil to colour 0 or the specified colour (in DrawingMode)
+MClsCookie                  [Colour] Clear a cookie to colour 0 or the specified colour (in DrawingMode)
+MPlot                       Xpos.w,Ypos.w[,Colour] ; Plot a single pixel in the bitmap in DrawingMode 
+MPlotShape                  Xpos.w,Ypos.w[,Colour] ; Plot a single pixel in the shape in DrawingMode
+MPlotStencil                Xpos.w,Ypos.w[,Colour] ;Plot a single pixel in the stencil to *represent* DrawingMode
+MPlotCookie                 Xpos.w,Ypos.w[,Colour] ; Plot a single pixel in the cookie to *represent* DrawingMode
+MPoint                      (Xpos.w,Ypos.w[,BitmapToRead.w]) ; Return the colour of a single pixel in a bitmap
+MPointShape                 (Xpos.w,Ypos.w[,ShapeToRead.w]) ; Return the colour of a single pixel in a shape
+MPointStencil               (Xpos.w,Ypos.w[,BitmapToRead.w]) ;Return the status of a pixel in stencil. -1=Data, 0=Background
+MPointCookie                (Xpos.w,Ypos.w[,ShapeToRead.w]) ; Return the status of a pixel in cookie. -1=Data, 0=Background
+MSScroll                    X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w[,CustomOffsets.l]] ; Copy bm 2 bm and st 2 st
+MSScrollShape               X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w[,CustomOffsets.l]] ; Copy sh2sh and ck2ck
+MSScrollBitmapToShape       X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w[,CustomOffsets.l]];bm2shandst2ck
+MSScrollShapeToBitmap       X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w[,CustomOffsets.l]]; sh2bmandck2st
+MSMaskScroll                X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w] ; Stencil-Copy bm 2 bm and st 2 st
+MSMaskScrollShape           X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w] ; Cookie-Copy sh2sh and ck2ck
+MSMaskScrollBitmapToShape   X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w] ;Sten-Copy bm2sh&st2ck
+MSMaskScrollShapeToBitmap   X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w] ; Cook-Copy sh2bm&ck2st
+MSBlockScroll               X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w] ; Block-Copy bm 2 bm and st 2 st
+MSBlockScrollShape          X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w] ; Block-Copy sh2sh and ck2ck
+MSBlockScrollBitmapToShape  X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceBitmapNum.w];BlockCopy bm2sh&st2ck
+MSBlockScrollShapeToBitmap  X1.w,Y1.w,Width.w,Height.w,X2.w,Y2.w[,SourceShapeNum.w];BlockCopy sh2bm&ck2st
+MSScrollCut                 On/Off ; 0=Paste stencil/cookie, <>0=Cut using stencil/cookie
+MUseShapeBank               BankNumber.w ; Current shape bank, 0..31
+MNothing                    ; This is the 128th token and it doesn't work so is a dummy
+MMaskScrollMode             [([]Mode.w[])];CookieMode/EraseMode/InvMode/SolidMode/MColourMode/MReMapMode/MSimpleReMapMode/MAddMo
+MBlitMode                   [([]Mode.w[])] ; CookieMode/EraseMode/InvMode/SolidMode/MColourMode/MReMapMode/MSimpleReMapMode/MAddMode
+MBlit                       [ShapeNumber.w,]Xpos.w,Ypos,w ; Blit shape to bitmap, any coords
+MBlock                      [ShapeNumber.w,]Xpos.w,Ypos.w ; Block-blit shape to bitmap, align Xpos and width in multiples of 16!
+MTile16x16                  [ShapeNumber.w,]Xpos.w,Ypos.w ; Block-blit 16x16 shape to bitmap, size must be 16x16, align x/y
+MTile32x32                  [ShapeNumber.w,]Xpos.w,Ypos.w ; Block-blit 32x32 shape to bitmap, size must be 32x32, align x/y
+MSTile16x16                 [ShapeNumber.w,]Xpos.w,Ypos.w ; Block-blit 16x16 shape&cook 2 bitmap, size 16x16, align x/y
+MSTile32x32                 [ShapeNumber.w,]Xpos.w,Ypos.w ; Block-blit 32x32 shape&cook 2 bitmap, size 32x32, align x/y
+MSTile16x16Store            [ShapeNumber.w,]Xpos.w,Ypos.w ; Block-blit 16x16 shape&cook 2 bitmaps, size 16x16, align x/y
+MSTile32x32Store            [ShapeNumber.w,]Xpos.w,Ypos.w ; Block-blit 32x32 shape&cook 2 bitmaps, size 32x32, align x/y
+MTile16x16Store             [ShapeNumber.w,]Xpos.w,Ypos.w ; Block-blit 16x16 shape to 2 bitmaps, size 16x16, align x/y
+MTile32x32Store             [ShapeNumber.w,]Xpos.w,Ypos.w ; Block-blit 32x32 shape to 2 bitmaps, size 32x32, align x/y
+MReserveQueues              [(]NumberOfQueues.w[)] ; Reserve structure-memory for Queues
+MFreeQueue                  [FirstQueue.w[,LastQueue.w]] ; Free a Queue, a range of queues, or all queues
+MAddrQueue                  [(QueueNumber.w)] ; Returns address of Queue structure
+MQueue                      [(]QueueNumber.w,NumberOfItems.w[)] ; Allocmem for Queue list items
+MFlushQueue                 QueueNumber.w ; Empties the queue to contain no items
+MQBlitMode                  [([]Mode.w[])] ; CookieMode/EraseMode/InvMode/SolidMode/MColourMode/MReMapMode/MSimpleReMapMode/MAddMode
+MAutoUseQueues              True/False ; Automatically `use' new Queues. <>0=True
+MUseQueue                   MainQueueNum.w[,SecondQueueNum.w[,ThirdQueueNum.w]] ; Current queue(s) to use
+MUsedQueue                   ; Returns currently used Queue
+MQBlit                      [[Queue.w,]ShapeNumber.w,]Xpos.w,Ypos,w ; QBlit shape to bitmap, any coords
+MQBlock                     [[Queue.w,]ShapeNumber.w,]Xpos.w,Ypos.w ; QBlock-blit shape 2 bitmap, align Xpos & width in mult of 16
+MUnQueue                    QueueNumber.w[,FirstItem.w,LastItem.w][,BitmapNumber.w] ; UnQueue [range of] queued objects [&flush]
+MBitmapPtr                  [Xpos.w,Ypos.w][,BitmapNumber.w] ; Return data address calculated using bitmap [and coords]
+MShapePtr                   [Xpos.w,Ypos.w][,ShapeNumber.w] ; Return data address calculated using shape [and coords]
+MStencilPtr                 [Xpos.w,Ypos.w][,BitmapNumber.w] ; Return address calculated using stencil [and coords]
+MCookiePtr                  [Xpos.w,Ypos.w][,ShapeNumber.w] ; Return address calculated using cookie [and coords]
+MQDummy                     [Queue.w,]Xpos.w,Ypos.w,Width.w,Height.w ; Add an item to a queue without having to do a blit
+MSBlitMode                  [([]Mode.w[])] ; CookieMode/EraseMode/InvMode/SolidMode/MColourMode/MReMapMode/MSimpleReMapMode/MAddMode
+MSBlit                      [ShapeNumber.w,]Xpos.w,Ypos,w ; Blit shape to bitmap and cookie to stencil, any coords
+MSBlock                     [ShapeNumber.w,]Xpos.w,Ypos.w ; Block-blit shape to bitmap & cookie 2 stencil, Xpos&Width in 16's
+MSBlitCut                   On/Off ; 0=Paste stencil/cookie, <>0=Cut using stencil/cookie
+MQSBlitMode                 [([]Mode.w[])] ;CookieMode/EraseMode/InvMode/SolidMode/MColourMode/MReMapMode/MSimpleReMapMode/MAddMode
+MQSBlit                     [[Queue.w,]ShapeNumber.w,]Xpos.w,Ypos,w ; QBlit shape to bitmap and cookie to stencil, any coords
+MQSBlock                    [[Queue.w,]ShapeNumber.w,]Xpos.w,Ypos.w ; QBlock-blit shape 2 bitmap, Xpos&width mult of 16
+MQSBlitCut                  On/Off ; 0=Paste stencil/cookie, <>0=Cut using stencil/cookie. Adds entry to queue
+MBoxF                       Xpos.w,Ypos.w,Xpos2.w,Ypos2.w[,Colour] Draw a filled box in a bitmap in DrawingMode
+MBoxFShape                  Xpos.w,Ypos.w,Xpos2.w,Ypos2.w[,Colour] Draw a filled box in a shape in DrawingMode
+MBoxFStencil                Xpos.w,Ypos.w,Xpos2.w,Ypos2.w[,Colour] Draw a filled box in a stencil in DrawingMode
+MBoxFCookie                 Xpos.w,Ypos.w,Xpos2.w,Ypos2.w[,Colour] Draw a filled box in a cookie in DrawingMode
+MBox                        Xpos.w,Ypos.w,Xpos2.w,Ypos2.w[,Colour] Draw an unfilled box in a bitmap in DrawingMode
+MBoxShape                   Xpos.w,Ypos.w,Xpos2.w,Ypos2.w[,Colour] Draw an unfilled box in a shape in DrawingMode
+MBoxStencil                 Xpos.w,Ypos.w,Xpos2.w,Ypos2.w[,Colour] Draw an unfilled box in a stencil in DrawingMode
+MBoxCookie                  Xpos.w,Ypos.w,Width.w,Height.w[,Colour] Draw an unfilled box in a cookie in DrawingMode
+MPlanar16ToBitmap           BitmapNum.w,PlanarAddr.l[,OpWidth.w,OpHeight.w,PlanarWidth.w,PlanarHeight.w] ; Convert p2c
+MPlanar16ToShape            ShapeNum.w,PlanarAddr.l[,OpWidth.w,OpHeight.w,PlanarWidth.w,PlanarHeight.w] ; Convert p2c
+MGenericPtr                 Xpos.w,Ypos.w,BaseAddress.l,RowWidth.w ; Calculate and return address based on inputs
+MCludgeCookie               ShapeNumber.w,Memory.l ; Cludge shape's cookie from existing mem
+MCludgeStencil              BitmapNumber.w,Memory.l ; Cludge bitmap's stencil from existing mem
+MBlockUnQueue               QueueNumber.w[,FirstItem.w,LastItem.w][,BitmapNumber.w];Block-UnQueue [range of] objects[&flush]
+MReMap                      [Colour#0.b,Colour#1.b,BitmapNum.w] *or* [RemapTable.l[,BitmapNum.w]] ; Remap #0 to #1 or with table
+MReMapShape                 [Colour#0.b,Colour#1.b,ShapeNum.w] *or* [RemapTable.l[,ShapeNum.w]] ; Remap #0 to #1 or with table
+MLine                       [Xpos.w,Ypos.w,]Xpos2.w,Ypos2.w[,Colour.b] ;Draw a line from X1,Y1 to X2,Y2 in a Bitmap in DrawingMode
+MLineShape                  [Xpos.w,Ypos.w,]Xpos2.w,Ypos2.w[,Colour.b] ;Draw a line from X1,Y1 to X2,Y2 in a Shape in DrawingMode
+MLineStencil                [Xpos.w,Ypos.w,]Xpos2.w,Ypos2.w[,Colour.b];Draw a line from X1,Y1 to X2,Y2 in a stencil in DrawingMode
+MLineCookie                 [Xpos.w,Ypos.w,]Xpos2.w,Ypos2.w[,Colour.b] ;Draw a line from X1,Y1 to X2,Y2 in a cookie in DrawingMode
+MInk                        MainColour.b[,SecondColour.b[,ThirdColour.b]] ; Set what colour to assume as currently used. 0..255
+MColourMode                 ;Returns value 4 which represents `colour' mode in the blit modes
+MReserveTables              [(]NumberOfTables.w[)] ; Reserve structure-memory for Tables
+MFreeTable                  [FirstTable.w[,LastTable.w]] TableNumber.w ; Free a Table, a range of tables or all tables
+MAddrTable                  [(TableNumber.w)] ; Returns address of Table structure
+MTable                      [(]TableNumber.w,SizeInBytes.l[)] ; Allocmem for Table list items
+MAutoUseTables              True/False ; Automatically `use' new Tables. <>0=True
+MUseTable                   MainTableNum.w[,SecondTableNum.w[,ThirdTableNum.w]] ; Current table(s) to use
+MUsedTable                   ; Returns currently used Table
+MTablePtr                   [TableNum.w] ; Returns pointer to base of the table itself
+MReMapMode                  ;Returns value 5 which represents `ReMap' mode in the blit modes (uses current 2-dimensional table)
+MSimpleReMapMode            ;Returns value 6 which is `SimpleReMap' mode in blit modes (uses current 1-dimensional table)
+MSMaskScrollMode            [([]Mode.w[])];CookieMode/EraseMode/InvMode/SolidMode/MColourMode/MReMapMode/MSimpleReMapMode/MAdd
+MPlotParticles              CoordinateList.l,NumPoints.l[,Colour.b] ; Plot lots of points from a table of positions
+MGrabParticles              CoordinateList.l,NumPoints.l,Buffer.l ; Grab lots of points from a table into buffer mem
+MDrawParticles              CoordinateList.l,NumPoints.l,Buffer.l ; Draw lots of previously grabbed points using a table
+MGrabParticlesAndPlot       CoordinateList.l,NumPoints.l,Buffer.l[,Colour.b]; Grabs points to buffer & plots table
+MAddToParticles             CoordinateList.l,NumPoints.l,IncA.l[,IncB.l] ; Add [two sets of] increments to particle list
+MWrapParticles              CoordinateList.l,NumPoints.l ; Bring particles in from opposite edge to which they left
+MReboundParticles           CoordinateList.l,NumPoints.l,DirectionList.l,DetectSize.w ; Bounce off edges (NOT Ptr.l!!!)
+MProcessor                  ; Returns value 0..6 representing MC68000..MC68060 cpu according to exec\AttnFlags
+MAddXYToParticles           CoordinateList.l,NumPoints.l,XToAdd.w,YToAdd.w ; Add constants to all particles
+MAddXYToParticlesA          CoordinateList.l,NumPoints.l,ValueToAdd.l ; Add constant to all particle pointers
+MAddXYToParticlesQ          CoordinateList.l,NumPoints.l,XToAdd.q,YToAdd.q ; Add constants to all particles
+MParticleMode               Mode.w or () ; MColourMode, MSimpleReMapMode, MReMapMode or MAddMode - to use in particle plot/draw
+MMildredBase                 ; Returns long address of the base of Mildred's internal data area
+MDrawingMode                [(]Mode.w[)] ; InvMode/MColourMode/MReMapMode/MSimpleReMapMode/MAddMode to use for drawing (MPlot etc)
+MParticleFormat             [(]Format.b[)] ; Set particle lists/operation format. 0 = X.w,Y.w, <0 = X.q,Y.q, >0 = Ptr.l
+MPictureDissolveIn          PictureBitmapNum.w,Colour.b ; Do a picture-based colour-number dissolve-in of a bitmap
+MPictureDissolveOut         PictureBitmapNum.w,Colour.b,WipeToColour.b ;Do picture-based colour dissolve-out of bitmap
+MZoom                       SrcX.q,SrcY.q,XAdd.q,YAdd.q,DestX.w,DestY.w,OpWidth.w,OpHeight.w,DeRes?.w[,SrcBmap.w[,CustomOffsets.l]]
+MZoomShape                  SrcX.q,SrcY.q,XAdd.q,YAdd.q,DestX.w,DestY.w,OpWidth.w,OpHeight.w,DeRes?.w[,SrcShap.w[,CustOffs.l]]
+MZoomBitmapToShape          SrcX.q,SrcY.q,XAdd.q,YAdd.q,DstX.w,DstY.w,OpWid.w,OpHeight.w,DeRes?.w[,SrcBmap.w[,CustOffs.l]]
+MZoomShapeToBitmap          SrcX.q,SrcY.q,XAdd.q,YAdd.q,DstX.w,DstY.w,OpWidth.w,OpHeight.w,DeRes?.w[,SrcShap.w[,CustOffs.l]]
+ZoneInit                    [zone_num#]|[#start_num,#end_num] - intialize zones
+SetZone                     num,x1,y1[,x2,y2]|[,radius]
+Zone                        (x,y)
+ZoneTest                    (start_num[,end_num],x,y)
+ZoneTable                   - returns address of the current zone table
+JFire                       (port)
+JVert                       (port)
+JHoriz                      (port)
+AllFire                     ([joybits])
+ZoneTableSize               - returns size of the current zone table
+NewZoneTable                table#,num_zones
+UseZoneTable                 - select a zone table for use
+FreeZoneTable               table#
+ZoneTableNumber             - returns the number of the current zone table
+ZoneMode                     - returns -1 for 68020 mode or 0 for 68000 mode
+SetZoneMode                 mode
+JAdaptorStatus              On/Off - status of four player adaptor reading
+GetZoneX1                   (zone) - returns the start x pos of a zone
+GetZoneY1                   (zone) - returns the start y pos of a zone
+GetZoneX2                   (zone) - returns the end x pos of a zone
+GetZoneY2                   (zone) - returns the end pos of a zone
+ReadJoyPad                  port#      --B,R,Y,G,FF,RW,PL,0
+OpenDisk                    unit#[,devicename$]
+MotorOn                     unit#
+CloseDisk                   unit#
+ReadSector                  unit#,sector#,buffer[,numsectors]
+MotorOff                    unit#
+WriteSector                 unit#,sector#,buffer[,numsectors]
+FormatTrack                 unit#,track#,buffer[,numtracks]
+WriteBoot                   unit#[,bootdata]
+DiskStatus                  unit#
+DiskIO                      unit#
+BootProg                    unit#,memoryaddress
+DiskMotor                     ; Returns -1 if motor is on
+GetIconObject               (filename$)
+FindToolValue               (tooltype$)
+SetToolValue                (tooltype$,value$[,status])
+PutIconObject               (filename$[,icontype])
+FreeIconObject               - free the disk object of a icon
+MatchToolValue              (tooltype$,value$)
+NewToolType                 (tooltype$,value$[,status])
+FindToolNumber              (tooltype#)
+ClearToolTypes
+SetIconHit                  width,height
+ShapeToIcon                 shape[,shape]
+SetIconType                 object_type
+IconRender                  render_flags
+IconDefTool                 tool$
+FindToolType                (tooltype$[,bracket_check])
+IconToShape                 shape[,shape]
+STCLength                   address   -- returns unpacked size
+STCStart                    address   -- returns address of unpacked data
+STCSafeLen                  address   -- safe unpack buffer size
+STCLoad                     filename$,address
+STCDecrunch                 source[,dest]
+NUseBitMap                  (#BitMap)
+NBitMap                     (#BitMap, Width, Height, Depth) - Allocate a new bitmap -
+NBitMapRastPort              - Return the used bitmap rastport -
+NShowBitMap                 (#BitMap, ScreenID, x, y)
+NFreeBitMap                 (#BitMap) - Free the specified bitmap -
+NInitBitMap                 (#MaxNumBitMaps) - Init BitMap environnement -
+NBitMapID                    - Return the used bitmap pointer -
+DoMethodA                   (Obj,Message)
+DoMethod                    (Obj,MethodID,Tag[,Tag..])
+DoSuperMethodA              (Class,Obj,Message)
+DoSuperMethod               (Class,Obj,MethodID,Tag[,Tag..])
+CoerceMethodA               (Class,Obj,Message)
+CoerceMethod                (Class,Obj,MethodID,Tag[,Tag..])
+SetSuperAttrs               (Class,Obj,Tag[,Tag..])
+VarArgs                     (Tag[,Tag..])
+LED_On                      turn Power-LED on.
+LED_Off                     turn Power-LED off.
+LED_Toggle                  toggle PowerLED.
+LED_Status                   0=off, -1=on
+PotGo                        ;starts up ADs (need 300ms to run)
+ReadPot                     (AD) ;0=P0-X, 1=P0-Y, 2=P1-X, 3=P1-Y
+AKey                         ;n.b=AKey, Code of !ALL! Keys
+LMBD                         ;wait until Left-Mouse-Button-Down
+RMBD                         ;wait until Right-Mouse-Button-Down
+LMBU                         ;wait until Left-Mouse-Button-Up
+RMBU                         ;wait until Right-Mouse-Button-Up
+ReadParPort                  ;n.b=ReadParPort
+WriteParPort                BitSet ;0-255
+SetParDDR                   BitSet ;0-255
+GetParDDR                    ;n.b=GetParDDR
+wbmessage                   - Returns location of WBStartup message
+WBArgs                      - Returns the number of arguments passed by the Workbench
+wArg                        (Num) - Used to get WB args
+ReadArgs                    (Template) - Used to parse CLI args
+cArg                        (Num) - Used to get CLI args
+ArNew                       (Num[,Kind]) - Used to create a new Array
+ArDispose                   Array - Frees memory used by the Array
+ArLen                       (Array) - Returns the length of the Array
+ArItm                       (Array) - Returns the number of items in the Array
+ArGet                       (Array,Item) - Used to get an Item form an Array
+ArSet                       (Array,Item,Data[,Data...] - Sets one or more items
+ArStr                       (Array,Item) - Used to get a String from an Array
+ArOfByte                    (Byte[,Byte...]) - Creates an array of Bytes
+ArOfWord                    (Word[,Word...]) - Creates an array of Words
+ArOfLong                    (Long[,Long...]) - Creates an array of Longs
+ArOfStrg                    (Strg[,Strg...]) - Creates an array of Strings
+FindByte                    (Str,Byte)|(Addr,Byte,Len) - Finds a Byte in memory.
+FindLong                    (Str,Long)|(Addr,Long,Len) - Finds a Long in memory.
+FindStrg                    (FindStr,Str)
+FindWord                    (Str,Word)|(Addr,Word,Len) - Finds a Word in memory.
+CountByte                   (Str,Byte)|(Addr,Byte,Len)
+CountWord                   (Str,Word)|(Addr,Word,Len)
+CountLong                   (Str,Long)|(Addr,Long,Len)
+Big                         (Int,Int) - Returns biggest
+Low                         (Int,Int) - Returns Lowest
+d2b                         (Int[,Len]) - Returns Bin representation.
+d2c                         (Int[,Len]) - Returns Asc representation.
+d2s                         (Int[,Len]) - Returns Str representation.
+d2x                         (Int[,Len]) - Returns Hex representation.
+c2b
+c2d                         (Str[,Len]) - Returns Dec representation.
+c2x                         (Str[,Len]) - Returns Hex representation.
+s2d                         (Str) - Convert in Dec.
+x2d                         (Str) - Convert Hex in a string in Dec.
+b2d                         (Str[,Len] - Convert a BinStr in Dec.
+c2p                         (Chunky,BitMap,Blocks)
+DrPort                      [RastPort] - Sets the RastPort to draw in
+DrPlot                      x,y[,Pen] - Changes the color of a pixel in the current RastPort
+DrBox                       x1,y1,x2,y2[,Pen] - Draws a box in the current RastPort
+DrBoxf                      x1,y1,x2,y2[,Pen] - Draws a filled box in the current RastPort
+DrLine                      x1,y1,x2,y2[,xn,yn...][,Pen] - Draws a series of lines on the current RastPort
+DrBevel                     x2,y1,x2,y2,Pen1,Pen2 - Draws a bevel box on the current RastPort
+DrText                      Text,x,y,Pen[,Len] - Prints Text on the current RastPort
+DrTextLen                   (Str[,Len]) - Returns size of Str in pixels
+DrTextMax                   (x1,x2,Str) - Returns the number of characters able to fit between x1 and x2
+DrTextStl                   Style
+DrCls                       Pen - Clears the current RastPort
+DrFont                      (Font) - Sets RastPort font
+DrMode                      Mode - Sets RastPort drawing mode
+DrEllipse                   x,y,xRad,yRad[,Pen] - Used to Draw an outlined ellipse
+DrCircle                    x,y,Rad[,Pen] - Used to Draw an outlined circle
+DrBlit                      BitMap,xSrc,ySrc,xDest,yDest,Width,Height[,MinTerm]
+DrTopaz                     Size - Sets Topaz font
+DrPen                       Pen - SET drawing pen
+OpenS                       (Width,Height,Depth,ScrRes,Title[,Tags])
+OpenW                       (X,Y,Width,Height,IDCMP,Flags,Title[,Scr[,Gads[,Tags]]])
+CloseS                      Scr - Used to close a screen
+CloseW                      Win - Used to close a window
+GetICode                    (Win) - Used to get event code
+GetIClass                   (Win) - Used to get event class
+WaitIMsg                    (Win) - Waits for a message from Intuition
+WaitICode                   Win,Code - Waits for Code(s)
+WaitIClass                  Win,Class - Waits for Class(es)
+MsgAddr                     - Last IntuiMessage structure
+MsgCode                     - Code part of the last IntuiMessage
+MsgClass                    - Class part of the last IntuiMessage
+MsgQualifier                - Qualifier part of the last IntuiMessage
+AcScreen                    - Used to get the pointer of the active screen
+AcWindow                    - Used to get the pointer of the active window
+ScrMseX                     [(Scr)] - Returns X position of the mouse pointer relative to a screen
+ScrMseY                     [(Scr)] - Returns Y position of the mouse pointer relative to a screen
+WinMseX                     [(Win)] - Returns X position of the mouse pointer relative to a window
+WinMseY                     [(Win)] - Returns Y position of the mouse pointer relative to a window
+ScrMseIn                    ([Scr,]x1,y1,x2,y2)
+WinMseIn                    ([Win,]x1,y1,x2,y2)
+NoMoreWin                   [(Scr)] - Used to check if there are windows on a screen
+WaitNoMoreWin               [(Scr)] - Waits while windows are still opened on a screen
+intuitionbase               - Returns pointer to Intuition library base
+OpenF                       (Name[,Mode]) - Opens a file
+CloseF                      [File] - Closes a file
+ReadLN                      [(File)] - Reads a line from a file
+ReadCH                      ([File,]Len) - Reads characters from a file
+WriteLN                     [File,]Str - Write a line to a file
+WriteCH                     [File,]Str - Write characters to a file
+WriteNM                     [File,]Num,Frm - Write a number to a file
+IOFile                      [File] - Used to Set or Get the working file
+EOFile                      [(File)] - Used to check the end of a file
+FSeek                       [File,]Pos,OffSet - Moves the 'file cursor' inside a file
+FSize                       [(File)] - Returns the size of a file in bytes
+LnkAdd                      (Header,Size) - Create linked list / Add an item
+LnkDel                      Header,Item - Remove Item from linked list
+PeekB                       (Addr) - Reads a Byte from memory.
+PeekW                       (Addr) - Reads a Word from memory.
+PeekL                       (Addr) - Reads a Long from memory.
+PokeB                       Addr,Byte - Writes a Byte in memory.
+PokeW                       Addr,Word - Writes a Word in memory.
+PokeL                       Addr,Long - Writes a Long in memory.
+PeekS                       (Addr[,Len]) - Reads a String form memory.
+PokeS                       Addr,Str[,Len] - Writes a String in memory.
+PeekT                       (Addr,Byte) - Reads memory into a String from Addr upto Byte.
+MPokeL                      Addr,Long[,Long...] - Writes multiple Longs.
+MemCls                      Addr,Len[,Byte] - Fills memory.
+FlipWord                    (Word) - Flips a Word.
+FlipLong                    (Long) - Flips a Long.
+FPeekW                      (Addr) - Returns and Flips a Word from Addr.
+FPeekL                      (Addr) - Returns and Flips a Long from Addr.
+UPeekB                      (Addr) - Returns an unsigned Byte from Addr.
+UPeekW                      (Addr) - Returns an unsigned Word from Addr.
+SaveMem                     (FileName,Addr,Len) - Saves memory in a file.
+LoadMem                     (FileName,Addr,Len) - Loads a file in memory.
+Printf                      Str[,Datas...]
+Stringf                     Str[,Datas...]
+PrintBuf
+StrLen                      (Str)|(Addr)
+StrLeft                     (Str,Len[,Pad])
+StrRight                    (Str,Len[,Pad])
+StrUpper                    (Str)
+StrLower                    (Str)
+StrFlip                     (Str)
+StrPack                     (Str[,Table])
+StrClone                    (Str,Num)
+StrRange                    (Start[,End]) - Returns all characters between Start and END
+StrChg                      (Str,OldStr,NewStr) - Replace all OldStr by NewStr in Str
+StrSub                      (Str,Pos[,Len[,Pad]]) - Returns a sub-string in Str
+StrTrans                    (Str,OutTable,InTable[,Pad])
+CtrlC                        - Returns True if a CTRL/C has been received
+New                         (Size[,Type]) - Allocates Memory
+Dispose                     (Addr) - Deallocates previously allocated memory
+KickVersion                 [(Ver)] - Used to Check/Get Kickstart version.
+execbase                    - Returns pointer to Exec library base.
+Word                        (Str[,Num])
+Words                       (Str)
+WordIndex                   (Str,Num)
+MakeCommodity               (name$,title$,description$
+SetHotKey                   (hotkeynum,hotkey$)
+HotKeyHit
+WaitCommodity
+CommodityEvent
+ExchangeMessage
+ExchangeDisable
+ExchangeEnable
+ExchangeAppear
+ExchangeDisAppear
+ExchangeKill
+ExchangeListChange
+ExchangeUnique
+CxDisable
+CxEnable
+CxAppear
+CxDisAppear
+CxKill
+CxListChange
+CxUnique
+SetCxStatus                 on|off
+CommodityMsgPort              -- returns the message port address

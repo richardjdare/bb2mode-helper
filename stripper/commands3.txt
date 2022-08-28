@@ -1,0 +1,857 @@
+      Blitz Stripper v1.01 Output.
+    Coded by D!ck (Dick@emarkt.com)
+    -------------------------------
+OpenFile                    (File#,Filename$)
+CloseFile                   File#
+KillFile                    Filename$
+Fields                      File#,Var1[,Var2...]
+Put                         File#,Record
+Get                         File#,Record
+FileOutput                  File#
+FileInput                   File#
+Lof                         (File#)
+FileSeek                    File#,Position
+Loc                         (File#)
+Eof                         (File#)
+DosBuffLen                  Bytes
+ReadFile                    (File#,Filename$)
+WriteFile                   (File#,Filename$)
+WriteMem                    File#,Address,Length
+ReadMem                     File#,Address,Length
+Exists                      (Filename$)
+WriteType                   File#,Variable
+ReadType                    File#,Variable
+fmove                       offs(ax),dest;floatmove
+fsub                        source,dest
+fadd                        source,dest
+fmul                        source,dest
+fdiv                        source,dest
+fcmp                        source,dest
+fneg                        source
+UsePPC                      Use PPC Assembler
+UseNoPPC                    Use 68k Assembler only if switch to ppc
+mullw                       (.)rd,ra,rb
+lbz                         rd,offs(ra)
+addis                       rd,ra,imm
+add
+addi
+cmpw                        [CR0-7],ra,rb Compare ra-rb
+cmpwi                       [CR0-7],ra,16bit Value Compare ra-rb
+fcmpo                       0-7,fra,frb
+bne
+beq
+blt
+ble
+bge
+bgt
+bnl
+bng
+bso
+bns
+bun
+bnu
+mulli
+addic
+subfic
+cmplwi
+mtctr
+mtlr
+mflr
+mfctr
+bdnz
+b_
+bl
+blr
+rlwimi                      [.] s,a,sh,mb,me
+rlwinm                      [.] s,a,sh,mb,me
+rlwnm                       [.] s,a,b,mb,me
+ori
+oris
+andi
+andis
+xori                        s,a,imm
+xoris                       s,a,imm
+subfc                       [.] rd,ra-rb
+addc                        [.] rd,ra+rb
+lwarx                       rd,Offs(rb)
+lwzx                        rd,ra,rb
+slw                         [.]rd,ra,rb
+and                         [.]rd,ra,rb
+subf                        [.]rd,ra,rb
+cmplw                       [CR0-7],ra,rb
+lwzux                       rd,ra,rb
+mulhw                       [.] rd,ra,rb
+lbzx                        rd,ra,rb
+neg                         [.] rd,ra
+lbzux                       rd,ra,rb
+nor                         [.] rd,ra,rb
+subfe                       [.] rd,ra,rb
+adde                        [.] rd,ra,rb
+stwx                         rd,ra,rb
+stwux                        rd,ra,rb
+stbx                        rd,ra,rb
+stbux                       rd,ra,rb
+lhzx                        rd,ra,rb
+lhax                        rd,ra,rb
+lhaux                       rd,ra,rb
+sthx                        rd,ra,rb
+fdiv                        rd,ra,rb
+sthux                       rd,ra,rb
+or                          [.]rd,ra,rb
+divwu                       [.]rd,ra,rb
+divw                        [.]rd,ra,rb
+lfsx                        rd,ra,rb
+srw                         [.]rd,ra,rb
+lfdx                        rd,ra,rb
+lfdux                       rd,ra,rb
+lfsux                       rd,ra,rb
+stfsx                       rd,ra,rb
+stfsux                      rd,ra,rb
+stfdx                       rd,ra,rb
+stfdux                      rd,ra,rb
+sraw                        [.] rd,ra,rb
+srawi                       [.] rd,ra,sh
+extsh                       [.] rd,rah
+extsb                       [.] rd,ra
+lwz                         rd,Offs(ra)
+lwzu                        rd,Offs(ra)
+lbzu                        rd,Offs(ra)
+stw                         rd,Offs(ra)
+stwu                        rd,Offs(ra)
+stb                         rd,Offs(ra)
+stbu                        rd,Offs(ra)
+lhz                         rd,Offs(ra)
+lhzu                        rd,Offs(ra)
+lha                         rd,Offs(ra)
+lhau                        rd,Offs(ra)
+sth                         rd,Offs(ra)
+sthu                        rd,Offs(ra)
+lfs                         rd,Offs(ra)
+lfsu                        rd,Offs(ra)
+lfd                         rd,Offs(ra)
+lfdu                        rd,Offs(ra)
+stfs                        rd,Offs(ra)
+stfsu                       rd,Offs(ra)
+stfd                        rd,Offs(ra)
+stfdu                       rd,Offs(ra)
+fsub                        rd,ra,rb
+fadd                        rd,ra,rb
+frsp                        rd,ra
+fctiw                       rd,ra
+fsqrt                       rd,ra
+fsel                        rd,ra,rb,rc
+fmul                        rd,ra,rb
+fcmpu                       [CR0-7] ra,rb
+fmsub                       rd,ra,rb,rc rd=ra*rb-rc
+fmadd                       rd,ra,rb,rc rd=ra*rb+rc
+fnmsub                      rd,ra,rb,rc
+fnmadd                      rd,ra,rb,rc
+fneg                        rd,ra
+XVCXVL
+fabs                        rd,ra
+fnabs                       rd,ra
+li                          rd,value
+la                          rd,offs(ra)
+subi                        rd,offs(ra)
+slwi                        rd,ra,shift
+srwi                        rd,ra,shift
+liw                         rd,imm Use 2 PPC Instructions !!
+illegal
+mr
+mftb
+mftbu
+fmr
+blrl
+tstw
+sub
+optimize                    1=Integer on 2=FPU on 4=newsyntax on
+ftan
+Stop
+initbasic
+fbeq
+fbne
+fbgt
+fblt
+fbge
+fble
+WZWindow                    window#,address or fname,max gadgets[,x,y,w,h,wzid]
+WZCloseWindow               Window#
+WZGadHit                    ;Current Gadgetnum
+WZInput                     ;Current Slider etc. Value
+WZHandle                    ;Current Windowhandleaddress
+WZWindowAddr                ;Current Windowaddress
+WZSurface                    ;Address of Surface
+WZTags                      Tag,Value [,Tag,Value...]
+WZGadAddr                   GadgetId; Returns Gadget Addr
+WZGadHelp                    ;Returns Gadgethelpstring
+WZMenuHelp                  ;Returns Menuhelpstring
+WZPrint                     Id or Name,Value (noFloat),[.];Set Gadget Parameter
+WZGadName                    ;Returns Gadget Name
+WZMenuName                  ;Returns Menu Name
+WZListAdd                   Listbase.List,string$[,Num,Data.l];Add Entry for Listview
+WZListRemove                Listbase.List[,Num];Remove Entry for Listview
+WZListString                Listbase.List,Item[,Mode];Returns Item String Mode=1 all Mode=2 clear select
+WZListAddr                  Listbase.List,Item;Adress of Listview
+WZEnable                    Gadnum;Enable Wizard Gadget
+WZDisable                   Gadnum;Disable Wizard Gadget
+WZListItems                 Listbase ;Returns Number of Listviewitems
+WZMenuOff                   Menuname;
+WZMenuOn                    Menuname;
+WZMenuSet                   Menuname,Status;Set Toggle Status
+WZMenuGet                   Menuname;Get Toggle Status
+WZDoubleClick               ;Returns Gadnumber for Doubleclick
+WZYFontsize                 ;Return y Fontheight
+WZXFontsize                 ;Return x Fontheight
+WZPutMsg                    Put Message in Reg d0 to Blitz Port for use with Event
+GetD0                       Variable,..;Put Variables to d0-d2 a2 =Newtypeaddr
+PutD0                       Put d0 to Variable var=PutD0
+WZWaitEvent                 (IntuiMsg if one exists);
+PushD0                      Variable,..;Put Register d0 to Stack
+PowerPCBase                 Returns Address of powerpc.library
+RunPPc                      ?CodeAddr,[d1,d2,a1,a5]
+WZListData                  Listbase.List,Item;Content of Listview userdata 
+WZListPos                   Name or id;pos=Listviewpos 1. visible entry
+WZGetString                 Name or id;string$=String in Stringgadget
+LockBasic                   ;Lock Basic for Subtask
+UnLockBasic                 Unlock Basic for Subtask
+Tags                        Tag,Value [,Tag,Value...]
+WZInputstr                  ;Current Gadget String
+WZListNum                   Name or id;pos=give number of sel entry
+WZListAddTree               Listbase.List,string$[,Parent Node[,num.l[,child list[,UserData];Add Entry for Hierachy
+WZGetNode                   (WizardNode);pos=give the selected Hierachy Node
+TextGadget                  GadgetList#,X,Y,Flags,Id,Text$
+StringGadget                GadgetList#,X,Y,Flags,Id,Maxlen,Width
+PropGadget                  GadgetList#,X,Y,Flags,Id,Width,Height,[propflags,propactivation[,typemask]]
+ShapeGadget                 GadgetList#,X,Y,Flags,Id,Shape#[,Shape#]
+SetHProp                    GadgetList#,Id,Pot,Body
+SetVProp                    GadgetList#,Id,Pot,Body
+HPropPot                    (GadgetList#,Id)
+HPropBody                   (GadgetList#,Id)
+VPropPot                    (GadgetList#,Id)
+VPropBody                   (GadgetList#,Id)
+Redraw                      Window#[,Id]
+Toggle                      GadgetList#,Id [,On|Off]
+GadgetBorder                X,Y,Width,Height
+Borders                     [On|Off]|[Width,Height]
+ActivateString              Window#,Id
+ResetString                 GadgetList#,Id
+StringText$                 (GadgetList#,Id)
+ClearString                 GadgetList#,Id
+GadgetPens                  Foreground Colour[,Background Colour]
+BorderPens                  Highlight Colour,Shadow Colour
+GadgetJam                   Jammode
+SelectMode                  1=Box, 0=Inverse
+SetString                   GadgetList#,Id,String$
+ButtonGroup                 Group
+GadgetStatus                (GadgetList#,Id)
+ButtonId                    (GadgetList#,ButtonGroup)
+Enable                      (GadgetList#,Id)
+Disable                     (GadgetList#,Id)
+SetGadgetStatus             (GadgetList#,Id,Value)
+SetPropInfo                 GadgetList#,Id,visible,total[,current]
+MoveProp                    GadgetList#,Id,current[,window_redraw]
+GetPropCurrent              GadgetList#,Id
+ArrowGadget                 GadgetList#,Id,direction,x,y,relativity[,special_flags]
+Queue                       Queue#,Max Items
+QBlit                       Queue#,Shape#,X,Y[,Excessonoff]
+UnQueue                     Queue#[,BitMap#]
+QBlitMode                   BLTCON0
+FlushQueue                  Queue#
+Screen                      [Screen#,Mode[,Title$]]|[Screen#,X,Y,W,H,D,Viewmode,Title$,Dpen,Bpen[,BitMap#]
+WbToScreen                  Screen#
+LoadScreen                  Screen#,Filename$[,Palette#]
+FindScreen                  Screen#[,Title$]
+SMouseX
+SMouseY
+ShowScreen                  Screen#
+ScreenPens                  Text,Shine,Shadow,Fill,FillText,Background,HighLight
+ViewPort                    (Screen#)
+ShowBitMap                  [BitMap#]
+CloseScreen                 Screen#
+HideScreen                  Screen#
+BeepScreen                  Screen#
+MoveScreen                  Screen#,deltax,deltay
+ScreenTags                  Screen#,Title$ [&TagList] or [[,Tag,Data]...]
+FrontScreen
+NewCloseScreen              Screen#
+GetPubScreen                Screen#[,Title$]
+ReleasePubScreen            Screen#[,Title$]
+OpenSerial                  device$,unit#,baud,io_serflags
+WriteSerial                 unit#,byte
+WriteSerialString           unit#,string[,Flags 1=DoIO 2=TrueString] 
+ReadSerial                  (unit#[,flags 1=wait on])  returns -1 if nothing waiting
+ReadSerialString            (unit#)  returns null if nothing waiting
+CloseSerial                 unit#
+SetSerialBuffer             unit#,bufferlength
+SetSerialLens               unit#,readlen,writelen,stopbits
+SetSerialParams             unit#
+SerialEvent                 (unit#)
+ReadSerialMem               unit#,Address,Length
+WriteSerialMem              unit#,Address,Length
+LoadShape                   Shape#,Filename$[,Palette#]
+MakeCookie                  Shape#
+ShapeWidth                  (Shape#)
+ShapeHeight                 (Shape#)
+Handle                      Shape#,X,Y
+AutoCookie                  On|Off
+CopyShape                   Shape#,Shape#
+GetaShape                   Shape#,X,Y,Width,Height
+SaveShapes                  Shape#,Shape#,Filename$
+LoadShapes                  Shape#[,Shape#],Filename$
+MidHandle                   Shape#
+DecodeShapes                Shape#[,Shape#],MemoryLocation
+InitShape                   Shape#,Width,Height,Depth
+Scale                       Shape#,X Ratio,Y Ratio[,Palette#]
+XFlip                       Shape#
+YFlip                       Shape#
+Rotate                      Shape#,Angle Ratio
+Circle                      x,y,rx[,ry],color
+Circlef                     x,y,rx[,ry],color
+Box                         x1,y1,x2,y2,color
+Boxf                        x1,y1,x2,y2,color
+Line                        [x1,y1,]x2,y2,color[,width]
+FreeFill                    frees memory allocated for 2d fill routines
+AllocFill                   for internal use only (polylib.obj)
+ReMap                       colour# to replace,destination colour# [,BitMap destintion
+FloodFill                   x,y,colour [,border colour]
+Poly                        numpts,*coords.w,color
+Polyf                       numpts,*coords.w,color[,color2]
+BitPlanesBitMap             srcbitmap,destbitmap,planepick
+ClipBlit                    Shape#,X,Y,[Excess]
+ClipBlitMode                BPLCON0
+BitMapWindow                srcbitmap,destbitmap,x,y,w,h
+BitMapOrigin                BitMap#,x,y
+Sort                        Arrayname()
+SortUp
+SortDown
+By
+Val                         (String$)
+Int                         (Expression)
+Sgn                         (Expression)
+Frac                        (Expression)
+QFrac                       (Quick)
+QWrap                       (Quick,Low,High)
+Rnd                         [(Range)]
+QAbs                        (Quick)
+Abs                         (Expression)
+QLimit                      (Quick,Low,High)
+NTSC
+DispHeight
+VPos
+True
+False
+QAngle                      (Src X,Src Y,Dest X,Dest Y)New
+Vallong                     (String$)
+RndSeed                     value ;set start value for random generator
+Speak                       string
+SetVoice                    rate(150),pitch(110),expression(1),sex,volume(64),freq(22200)
+Translate$                  returns phoneme translation of a string
+PhoneticSpeak               phonetic string
+VoiceLoc                    returns location of newvoice struct
+InitCopList                 CopList#[,type]|[,ypos,height,type,sprites,colors,numcustoms]
+CreateDisplay               CopList#[,CopList#..]
+DisplayBitMap               CopList#,bmap[,x,y] [,bmap[,x,y]]
+DisplaySprite               CopList#,Sprite#,X,Y,Sprite Channel
+DisplayPalette              CopList#,Palette# [,coloroffset] [,coloroffset,bankoffset]
+DisplayControls             CopList#,BPLCON2,BPLCON3,BPLCON4
+DisplayAdjust               CopList#,fetchwid,ddfstrt,ddfstop,diwstrt,diwstop
+CustomColors                CopList#,CCOffset,YPos,Palette,startcol,numcols[,thru256flag]  ;ecs=2+n aga=2+n+n+n/16
+CustomString                CopList#,CCOffset,YPos,Copper$  ;2+n {n=len(a$)/4}
+DisplayDblScan              CopList#,Mode[,copoffset]   ;2
+DisplayRainbow              CopList#,Register,Palette[,copoffset] ;ecs=1 aga=4
+DisplayRGB                  CopList#,Register,line,r,g,b[,copoffset] ;ecs=1 aga=4
+DisplayUser                 CopList#,Line,String[,Offset]
+DisplayScroll               CopList#,&xpos.q(n),&xpos.q(n)[,Offset]   ;3
+CustomSprites               CopList#,CCOffset,YPos,NumSprites ;4n+2
+CustomChunky                CopList#,CCOffset,YPos,width,height,res[,splitpos] ;4n+2
+CustomChunkySize            width,height
+DisplayGenlock              BPLCON0     ;2=use external sync 4=interlace
+GetaSprite                  Sprite#,Shape#
+ShowSprite                  Sprite#,X,Y,Sprite Channel
+InFront                     Sprite Channel
+InFrontF                    Sprite Channel
+InFrontB                    Sprite Channel
+SaveSprites                 Sprite#,Sprite#,Filename$
+LoadSprites                 Sprite#[,Sprite#],Filename$
+SpriteMode                  0=16 1=32 2=64
+Stencil                     Stencil#,BitMap#
+SBlit                       Stencil#,Shape#,X,Y[,Excessonoff]
+SBlitMode                   BLTCON0
+Left$                       (String$,Length)
+Right$                      (String$,Length)
+Mid$                        (String$,Startchar[,Length][,Replace$])
+Hex$                        (Expression)
+Bin$                        (Expression)
+Chr$                        (Expression)
+Asc                         (String$)
+String$                     (String$,Repeats)
+Instr                       (String$,Findstring$[,Startpos])
+Replace$                    (String$,Findstring$,Replacestring$)
+Mki$                        (Integer)
+Mkl$                        (Long)
+Cvi                         (String$)
+Cvl                         (String$)
+Len                         (String$)
+UnLeft$                     (String$,Length)
+UnRight$                    (String$,Length)
+StripLead$                  (String$,Ascii)
+StripTrail$                 (String$,Ascii)
+LSet$                       (String$,Characters)
+RSet$                       (String$,Characters)
+Centre$                     (String$,Characters)
+LCase$                      (String$)
+UCase$                      (String$)
+CaseSense                   On|Off
+Mkq$                        (Quick)
+Cvq                         (String$)
+Hexb$                       (Expression)
+Hexw$                       (Expression)
+Binb$                       (Expression)
+Binw$                       (Expression)
+PeekMax$                    addr,maxchars
+LoadModule                  Module#,Filename$
+PlayModule                  Module#
+StopModule
+CreateMsgPort                *UserPort.port=CreateMsgPort(PortName$)
+DeleteMsgPort                *UserPort
+Wait
+TaskName$                   task
+Window                      Window#,X,Y,Width,Height,Flags,Title$,Dpen,Bpen[,GadgetList#[,BitMap#]]
+WaitEvent
+Event
+GadgetHit
+EventWindow
+DefaultIDCMP                IDCMP_Flags
+MenuHit
+ItemHit
+SubHit
+WindowFont                  IntuiFont# [,SoftStyle]
+WPlot                       X,Y,Colour
+WBox                        X1,Y1,X2,Y2,Colour
+WCircle                     X,Y,Radius,Colour
+WEllipse                    X,Y,X Radius,Y Radius,Colour
+WCls                        [Colour]
+WLocate                     Cursor x,Cursor y
+WindowInput                 Window#
+WindowOutput                Window#
+Qualifier
+RawKey
+Cursor                      Thickness : <0 - block, >=0 - underline thickness
+Editat
+EditFrom                    [Characterpos]
+EditExit
+WScroll                     X1,Y1,X2,Y2,Delta X,Delta Y[,colour]
+WMouseX
+WMouseY
+WColour                     Foreground Colour[,Background Colour]
+WJam                        Jammode
+Wline                       X1,Y1,X2,Y3[,Xn,Yn...],Colour
+Activate                    Window#
+WindowX
+WindowY
+MButtons
+Menus                       On|Off
+WCursX
+WCursY
+WPointer                    Shape#
+MenusOn
+MenusOff
+WMove                       X,Y
+WSize                       Width,Height
+WindowWidth
+WindowHeight
+InnerWidth
+InnerHeight
+InnerCls                    [Colour]
+WTopOff
+WLeftOff
+SizeLimits                  Min Width,Min Height,Max Width,Max Height
+EMouseX
+EMouseY
+AddIDCMP                    IDCMP_Flags
+SubIDCMP                    IDCMP_Flags
+FlushEvents                 [IDCMP_Flag]
+CatchDosErrs
+RastPort                    (Window#)
+SetEventFilter              preprocess,postprocess
+WTitle                      windowtitle$[,screentitle$]
+CloseWindow                 Window#
+WPrintScroll
+WBlit                       Shape#,x,y
+BitMaptoWindow              Bitmap#,Window#[,srcx,srcy,destx,desty,wid,height]
+EventCode
+EventQualifier
+PositionSuperBitMap         x,y
+GetSuperBitMap
+PutSuperBitMap
+WindowTags                  Window#,Flags,Title$ [,&TagList] or [[,Tag,Data]...]
+AddWaitEvent                bitnumber,returncode.l
+DelWaitEvent                bitnumber
+EventiAddress               Return Intui IAddress 
+WaitEventSigBits            return the sig recieved from WaitEvent
+EventSeconds
+EventMicros
+WaitEventMask               Signalmask ; sets the signalmask for waitevent
+BlitzMsgPort                Return the adress of the Eventx Messageport
+EventDoubleclick            Return true if a doubleclick occur
+GTButton                    GTList#,id.w,x.w,y.w,w.w,h.w,Text$,flags.l[,UserData.l]
+GTCheckBox                  GTList#,id,x,y,w,h,Text$,flags
+GTCycle                     GTList#,id,x,y,w,h,Text$,flags,Options$[,active]
+GTInteger                   GTList#,id,x,y,w,h,Text$,flags,default
+GTListView                  GTList#,id,x,y,w,h,Text$,flags,list()[,selected[,top]]
+GTMX                        GTList#,id,x,y,w,h,Text$,flags,Options$[,active]
+GTNumber                    GTList#,id,x,y,w,h,Text$,flags,value
+GTPalette                   GTList#,id,x,y,w,h,Text$,flags,depth[,Color]
+GTScroller                  GTList#,id,x,y,w,h,Text$,flags,Visible,Total[,Top]
+GTSlider                    GTList#,id,x,y,w,h,Text$,flags,Min,Max[,Level]
+GTString                    GTList#,id,x,y,w,h,Text$,flags,MaxChars [,default$]
+GTText                      GTList#,id,x,y,w,h,Text$,flags,Display$
+AttachGTList                GTList#,Window#
+GTTags                      Tag,Value [,Tag,Value...]
+GTGadPtr                    (GTList#,id)
+GTBevelBox                  GTList#,x.l,y.l,w.l,h.l,flags.l[,type.l]
+GTChangeList                GTList#,id [ ,List() ]
+GTSetAttrs                  GTList#,id [,Tag,Value...]
+GTSetString                 GTList#,id,string$
+GTSetInteger                GTList#,id,value
+GTGetString                 GTList#,id
+GTGetInteger                GTList#,id
+GTShape                     GTList#,id,x,y,flags,Shape#[,Shape#]
+GTGetAttrs                  (GTList#,id,Tag)
+GTEnable                    GTList#,Id
+GTDisable                   GTList#,Id
+GTToggle                    GTList#,Id [,On|Off]
+GTStatus                    GTList#,Id
+GTArrowSize                 size
+DetachGTList                GTList# - Removes a GTList from a window
+GTGZZPosition               On/Off - Turn on/off adding of window borders to gadget positions
+GTSetHighlight              GTList#,id,value - Set highlighted item in GTListview
+GTFreeGadget                [(]GTList#,id[)]
+GTActivateGadget            GTList#,id - Activates a string/custom gadget
+GTNewLookProp               [Mode=On/Off] or [GTList,ID,On/Off]
+GTListAddress               (List())  Returns address of List header structure
+GTUserData                  UserData.l - Set userdata for next gadget created
+GTChangeCycle               [(]GTList.w,ID.w,Option$[)] - Change contents of GTCycle gadget
+GTGetInternal               Returns pointer to internal list of memory allocations
+GTUnderscore                char.w - Sets the ASCII code of the character to use as the underscore indicator
+GTEventSeconds              - Tells you the seconds at which the last event occurred
+GTEventMicros               - Tells you the microseconds at which the last event occurred
+LoadAnim                    Anim#,Filename$[,Palette#]
+InitAnim                    Anim#[,BitMap#]
+NextFrame                   Anim#
+Frames                      (Anim#)
+CreateRexxMsg               MsgPtr=CreateRexxMsg(ReplyPort,Exten,Host)
+DeleteRexxMsg               rexxmsg.l
+FillRexxMsg                 rexxmsg,&FillStruct
+ClearRexxMsg                rexxmsg
+CreateArgString             ArgString=CreateArgString(String)
+DeleteArgString             argstring
+SendRexxCommand             rexxmsg,CommandString,ActionCodes
+ReplyRexxMsg                rexxmsg,Result1,Result2,ResultString
+GetRexxResult               Result=GetRexxResult(rexxmsg,ResultNum)
+GetRexxCommand              String=GetRexxCommand(rexxmsg,ARGNum)
+GetResultString             String=GetResultString(rexxmsg)
+RexxEvent                   rexxmsg=RexxEvent(PortAddress)
+IsRexxMsg                   Boolean=IsRexxMsg(rexxmsg)
+RexxError                   ErrorString=RexxError(ErrorCode)
+DiskPlay                    Filename$,Channelmask[,Vol1[,Vol2...]]
+DiskBuffer                  Bufferlen
+LoadSound                   Sound#,Filename$
+Sound                       Sound#,Channelmask[,Vol1[,Vol2...]]
+Volume                      Channelmask,Vol1[,Vol2...]
+Filter                      On|Off
+LoopSound                   Sound#,Channelmask[,Vol1[,Vol2...]]
+InitSound                   Sound#,Length[,Period[,Repeat]]
+SoundData                   Sound#,Offset,Data
+PeekSound                   (Sound#,Offset)
+DecodeSound                 Sound#,MemoryLocation
+SetPeriod                   Sound#,Period
+Bank                        (bank#)  ;returns location of bank, 0 if not in use
+InitBank                    bank#,size,memtype ;0=fast 2=chip 65536=clrmem
+FreeBank                    bank#
+LoadBank                    bank#,filename$[,memtype]
+SaveBank                    bank#,filename$
+BankLoc                     (bank#)
+BankSize                    (bank#)
+AllocMem                    (size,memtype) memtype: 0=fast 2=chip 65536=clrmem
+FreeMem                     address,size
+Buffer                      Buffer#,Memorylen
+BBlit                       Buffer#,Shape#,X,Y[,Excessonoff]
+UnBuffer                    Buffer#
+BBlitMode                   BLTCON0
+ShowStencil                 Buffer#,Stencil#
+FlushBuffer                 Buffer#
+BitMap                      BitMap#,Width,Height,Depth
+LoadBitMap                  BitMap#,Filename$[,Palette#]
+ScreensBitMap               Screen#,BitMap#
+CopyBitMap                  Src BitMap#,Dest BitMap#
+ShapesBitMap                Shape#,BitMap#
+CludgeBitMap                BitMap#,Width,Height,Depth,Memory
+Blit                        Shape#,X,Y[,Excessonoff]
+BlitMode                    BLTCON0
+CookieMode
+EraseMode
+InvMode
+SolidMode
+Block                       Shape#,X,Y
+BlitColl                    (Shape#,x,y)
+Slice                       [Slice#,Y,Flags]|[Slice#,Y,Width,Hite,Flgs,Bitplns,Sprts,Colrs,Fscrnw,Bscrnw]
+CopLoc
+CustomCop                   Copins$,Y
+Show                        Bitmap#[,X,Y]
+ShowF                       Bitmap#[,X,Y[,ShowB X]]
+ShowB                       Bitmap#[,X,Y[,ShowF X]]
+CopLen
+ColSplit                    Colour Register,Red,Green,Blue,Y
+ShowBlitz
+FreeSlices
+DisplayOff
+DisplayOn
+SetBPLCON0                  BPLCON0 Default
+SetBLWait                   Wait move for line 256 (eg:$ffe1fffe
+BlitzKeys                   On|Off
+RawStatus                   (Rawkey)
+BlitzRepeat                 Delay,Speed
+BlitzQualifier
+HandleRawKey
+BlitzKey                    ;same as inkey$ after a bitmapinput
+InitPage                    Page#,BitMap#,NumBoxes
+FreePage                    Page#
+AddBox                      Page#,Box#,x,y,w,h,type[,text$]|[,shape,shape]
+RedrawPage
+RedrawBox                   Box#
+SelectBox                   [Box#]|[x+,y+][0,x,y] ;deselects previously selected
+DeSelectBox
+ActivateSelectedBox
+SetBox                      Box#[,Value]|[xprop,yprop]
+BoxValue                    (Box#)|(Page#,Box#)
+SetBoxString                Box#,String$
+BoxString                   (Box#)|(Page#,Box#)
+BoxShow                     Box#[,Bitmap#,x,y]|[dx,dy]
+BoxSelected
+BoxPrint                    Box#[,String$]|[Bank#,Line]
+SetBoxColor                 Box#,color
+BlitzEvent                  ;handles user input and returns event
+SetBoxTitle                 Box#,String$
+DisableBox                  Box#
+EnableBox                   Box#
+MouseEnabled
+SetPagePens                 Page#,c0,c1,c2,c3 (defaults: 3,1,2,3)
+BoxPropX                    Box#
+BoxPropY                    Box#
+ChangeBox                   Page#,Box#,Value
+ToggleBox                   Box#
+SpotBox                     ; returns box that mouse is over
+Record                      [Tape#]
+PlayBack                    [Tape#]
+SaveTape                    Tape#,Filename$
+LoadTape                    Tape#,filename$
+AbsMouse                    X,Y
+RelMouse                    X Offset,Y Offset
+MouseButton                 Button,On|Off : 0=Left
+ClickButton                 Button : 0=Left
+MacroKey                    Tape#,Rawkey,Qualifier
+TapeTrap                    [Tape#]
+QuietTrap                   On|Off
+Type                        String$[,QUILIFIER
+QuickPlay                   On|Off
+XStatus
+PlayWait
+FreeMacroKey                Rawkey,Qualifier
+NumPars                       pars.w=NumPars  Number of paramters passed to program.
+Par$                          parameter$=Par$(Paramter#)   Returns the string value of a parameter.
+FromCLI                       result=FromCLI   0=Run from WorkBench, -1=Run from CLI
+ParPath$                      path$=ParPath$(Par#,#type)  Full/Dir path of WB arg. (v36+ only!)
+SetCollOdd
+SetColl                     Colour,Bitplanes[,Playfield 1=front, 2=back]
+SetCollHi                   Bitplanes
+ShapesHit                   (Shape#,X,Y,Shape#,X,Y)
+ShapeSpriteHit              (Shape#,X,Y,Sprite#,X,Y)
+SpritesHit                  (Sprite#,X,Y,Sprite#,X,Y)
+RectsHit                    (X1,Y1,Width1,Height1,X2,Y2,Width2,Height2)
+SColl                       (Sprite Channel,Sprite Channel)
+PColl                       (Sprite Channel)
+DoColl
+Random1                     num1.q,num2.q
+Random2                     num1.q,num2.q
+Random3                     num1.q,num2.q
+ADM                         *mat.matrix,row,col
+Elt                         *mat.matrix,row,col
+SetElt                      *mat.matrix,row,col,value.q
+Transp                      *mat.matrix
+SwapRow                     *mat.matrix,row,row
+Recipacc                    quick
+Recipapx                    quick
+SystemDate                  Returns system date as number of days since 1/1/1978
+Date$                       days.l ;converts days since 1/1/1978 to date string
+NumDays                     date$ ;converts dd/mm/yyyy to days since 1/1/1978
+DateFormat                  0=dd/mm/yyyy 1=mm/dd/yyyy
+Days                         ;returns day calculated in last call to date$
+Months                       ;returns month calculated in last call to date$
+Years                        ;returns year calculated in last call to date$
+WeekDay                      ;returns day of week calculated in last call to date$
+Hours                        ;gets system time and returns hour of day
+Mins                         ;returns minutes calculated at last call to hour
+Secs                         ;returns seconds calculated at last call to hour
+Edit$                       ([DefaultString$,]Characters)
+Inkey$                      [(Characters)]
+Edit                        ([DefaultValue,]Characters)
+WBWidth
+WBHeight
+WBDepth
+WBViewMode
+Processor                   0=68000,1=68010,2=68020,3=68030,4=68040,5=68060
+cr_vbr
+ExecVersion
+WBExtViewMode
+FadeIn                      Palette#[,Rate[,Low Colour,High Colour]]
+FadeOut                     Palette#[,Rate[,Low Colour,High Colour]]
+ASyncFade                   On|Off
+DoFade
+FadeStatus
+LoadBlitzFont               BlitzFont#,Fontname.font$
+BitMapOutput                Bitmap#
+Colour                      Foreground Colour[,Background Colour]
+Locate                      X,Y
+CursX
+CursY
+BitMapInput
+FileRequest$                Title$,Pathname$,Filename$
+Joyx                        (Port)
+Joyy                        (Port)
+Joyr                        (Port)
+Joyb                        (Port)
+Gameb                       (Port)
+SaveBitmap                  BitMap#,Filename$[,Palette#]
+SaveScreen                  Screen#,Filename$
+SaveShape                   Shape#,Filename$[,Palette#]
+SavePalette                 Palette#,Filename$
+ILBMInfo                    Filename$
+ILBMWidth
+ILBMHeight
+ILBMDepth
+ILBMViewMode
+DecodeILBM                  Bitmap#,MemoryLocation
+DefaultInput
+DefaultOutput
+PopInput
+PopOutput
+LoadFont                    IntuiFont#,Fontname.font$,Y size [,style]
+FirstItem                   (Arrayname())
+AddItem                     (N Arrayname())
+NextItem                    (Arrayname())
+ResetList                   Arrayname()
+KillItem                    Arrayname()
+AddFirst                    (Arrayname())
+ClearList                   Arrayname()
+AddLast                     (Arrayname())
+PushItem                    Arrayname()
+PopItem                     Arrayname()
+PrevItem                    Arrayname()
+LastItem                    Arrayname()
+ItemStackSize               Max Items
+SortList                    Arrayname(),sizeof .type\offset
+SetItem                     Arrayname(),&Item
+CountList                   (Arrayname())
+CountItem                   (Arrayname())
+FillArray                   array(),value -- only byte/word/long arrays!
+ACos                        (Float)
+ASin                        (Float)
+ATan                        (Float)
+Cos                         (Float)
+HCos                        (Float)
+Exp                         (Float)
+Log10                       (Float)
+Log                         (Float)
+Sin                         (Float)
+HSin                        (Float)
+Sqr                         (Float)
+Tan                         (Float)
+HTan                        (Float)
+LoadMedModule               MedModule#,Name
+StartMedModule              MedModule#
+PlayMed
+StopMed
+JumpMed                     Pattern#
+SetMedVolume                Volume
+GetMedVolume                Channel
+GetMedNote                  Channel
+GetMedInstr                 Channel
+SetMedMask                  Channel Mask
+DecodeMedModule             MedModule#,MemoryLocation
+LoadPalette                 Palette#,Filename$[,Palette Offset]
+Cycle                       Palette#
+RGB                         Colour Register,Red,Green,Blue
+Red                         (Colour Register)
+Green                       (Colour Register)
+Blue                        (Colour Register)
+PalRGB                      Palette#,Colour Register,Red,Green,Blue
+SetCycle                    Palette#,Cycle,Low Colour,High Colour[,Speed]
+StopCycle
+AGARGB                      Colour Register,Red,Green,Blue
+AGAPalRGB                   Palette#,Colour Register,Red,Green,Blue
+AGARed                      (Colour Register)
+AGAGreen                    (Colour Register)
+AGABlue                     (Colour Register)
+ShowPalette                 Palette#
+NewPaletteMode              On|Off
+CyclePalette                Palette#
+FadePalette                 SrcPalette#,DestPalette#,Brightness.q
+InitPalette                 Palette#,NumColors
+PaletteRange                Palette#,StartCol,EndCol,r0,g0,b0,r1,g1,b1
+DuplicatePalette            SrcPalette#,DestPalette#
+DecodePalette               Palette#,MemoryLocation[,Palette Offset]
+MixPalette                  Palette#,Palette#,DestPalette#,fraction
+Scroll                      X1,Y1,Width,Height,X2,Y2[,BitMap#]
+Plot                        X,Y,Colour
+Point                       X,Y,Colour
+Cls                         [Colour]
+BlockScroll                 X1,Y1,Width,Height,X2,Y2[,BitMap#]
+Poke                        [.Type] Address,Data
+Peek                        [.Type](Address)
+Peeks$                      (Address,Length)
+Call                        Address
+PeekUB                      (addr);Read unsigned byte at address
+PeekUW                      (addr);Read unsigned word at address
+MenuTitle                   MenuList#,Menu,Title$
+SetMenu                     Menulist#
+MenuItem                    MenuList#,Flags,Menu,Item,Itemtext$[,Shortcut$]
+SubItem                     MenuList#,Flags,Menu,Item,Subitem,Subitemtext$[,Shortcut$]
+ShapeItem                   MenuList#,Flags,Menu,Item,Shape#
+ShapeSub                    MenuList#,Flags,Menu,Item,Subitem,Shape#
+MenuGap                     X Gap,Y Gap
+SubItemOff                  X Offset,Y Offset
+MenuState                   MenuList#[,Menu[,Item[,Subitem]]],On|Off
+MenuColour                  Colour
+MenuChecked                 (MenuList#,Menu,Item[,Subitem])
+Mouse                       On|Off
+Pointer                     Sprite#,Sprite Channel
+MouseArea                   Minx,Miny,Maxx,Maxy
+MouseX
+MouseY
+MouseXSpeed
+MouseYSpeed
+PositionMouse               x,y
+Print                       Expression[,Expression...]
+NPrint                      Expression[,Expression...]
+Str$                        (Expression)
+Format                      FormatString
+FloatMode                   Mode : -1=standard, 0=guess, 1=exp
+UStr$                       (Expression)
+ChunkyCLS                   color
+ChunkyPlot                  x,y,color,[,CLIP]
+ChunkyVlin                  x,y1,y2,color,[,CLIP]
+ChunkyPoly                  numpts,*coords.w,color[,noblitter]
+BitMapPoly                  numpts,*coords.w,color[,ditherbitmap]
+RenderToBitmap              BitMap#[,DitherBitMap#]
+RenderToChunky              CopList#[,split]
+RenderPoly                  numpts,*coords.w,color
+ASLFileRequest$             Title$,Pathname$,Filename$ [,Pattern$] [,x,y,w,h]
+ASLFontRequest              enable flags (1=pen 2=bckgrnd 4=style 8=drawmode 16=fixedsize)
+ASLScreenRequest            enable flags (1=width 2=height 4=depth 8=overscan 16=scroll)
+ASLPathRequest$             Title$,Pathname$ [,x,y,w,h]
+ASLMultiSelect              Title$,Pathname$,Filename$[,x,y,w,h]
+ASLGetFile                  (argnum)
+ASLNextFile
+ASLFreeRequest
+ASLNumFiles
