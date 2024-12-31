@@ -1,12 +1,12 @@
 # bb2mode-helper
 
-This Common Lisp package contains a bunch of Common Lisp code that I use to maintain [bb2-mode](https://github.com/richardjdare/bb2-mode), an Emacs major mode for Blitz Basic 2.
+This Common Lisp package contains a bunch of code that I use to maintain [bb2-mode](https://github.com/richardjdare/bb2-mode), an Emacs major mode for Blitz Basic 2.
 
 bb2-mode has a big table inside it containing all the Blitz 2 commands and their corresponding help strings and binary tokens. The code in this project is used to generate that table and look after the data.
 
-The data is initially extracted from Blitz 2 using a 3rd-party program called Stripper. This scans the Blitz 2 binaries and outputs text files containing all the Blitz 2 commands and their help strings.
+First, the data is extracted from Blitz 2 using a 3rd-party program called Stripper. This scans the Blitz 2 binaries and outputs text files containing all the Blitz 2 commands and their help strings.
 
-The (bb2mode-helper:extract-commands) function in this package is used to extract the data we want from these text files and store it in a mysql database 'bb2mode' (a complete mysql dump of this is included in this repo)
+then, the (bb2mode-helper:extract-commands) function in this package is used to extract data from these text files and store it in a mysql database, 'bb2mode'. A complete mysql dump of this database is included in this repo.
 
 Then, we need to get the binary tokens. Each Blitz 2 command has a 2-byte binary token associated with it.
 
